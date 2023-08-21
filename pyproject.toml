@@ -1,0 +1,62 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "Impacta-Health"
+version = "1.0"
+dependencies = [
+  "boto3",
+  "Collectfast",
+  "Django",
+  "dj-database-url",
+  "django-cleanup",
+  "django-cors-headers",
+  "django-extensions",
+  "django-storages",
+  "gunicorn",
+  "httpx",
+  "pytz",
+  "psycopg2-binary",
+  "python-decouple",
+]
+
+[project.optional-dependencies]
+dev = [
+  "black",
+  "coverage",
+  "isort",
+  "Faker",
+  "factory-boy",
+  "flake8",
+  "pylint-django",
+  "pytest",
+  "pytest-cov",
+  "pytest-django",
+  "Flake8-pyproject",
+]
+
+[tool.pip-tools]
+generate-hashes = true
+
+# ---- Development tools config ----
+
+[tool.flake8]
+max-line-length = 120
+exclude = []
+select = "C,E,F,W,B,B950"
+extend-ignore = "E203, F403, F405, E501, E722, F631, W503"
+
+[tool.isort]
+skip = [
+    ".env/",
+    "impacta_health/"
+]
+multi_line_output = 3
+skip_glob = "**/migrations/*.py"
+include_trailing_comma = true
+force_grid_wrap = 0
+use_parentheses = true
+
+[tool.pytest]
+filterwarnings = "ignore::pytest.PytestAssertRewriteWarning"
