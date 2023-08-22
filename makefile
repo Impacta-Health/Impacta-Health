@@ -11,13 +11,13 @@ build:
 	
 compile:
 	@rm -f requirements.txt
+	@rm -f dev-requirements.txt
 	@make exec cmd="pip-compile -o requirements.txt pyproject.toml"
+	@make exec cmd="pip-compile --extra dev -o dev-requirements.txt pyproject.toml"
 
 compile-dev:
 	@rm -f dev-requirements.txt
-
 	@make exec cmd="pip-compile --extra dev -o dev-requirements.txt pyproject.toml"
-	@make compile
 
 sync:
 	@make exec cmd="pip-sync dev-requirements.txt"
@@ -42,7 +42,7 @@ back-formatter:
 	@make exec cmd="isort --force-alphabetical-sort-within-sections ."
 
 	@echo "Formatting code..."
-	@make exec cmd="black --exclude "migrations" --line-length 120 ."
+	@make exec cmd="black ."
 
 	@echo "Running flake8"
 	@make exec cmd="flake8"

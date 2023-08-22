@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 import os
 from pathlib import Path
 
-from decouple import Csv, config
+from decouple import config, Csv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,16 +23,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config('SECRET_KEY')
+SECRET_KEY = config("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG', cast=bool)
+DEBUG = config("DEBUG", cast=bool)
 
-ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
+ALLOWED_HOSTS = config("ALLOWED_HOSTS", cast=Csv())
 
 
 # Application definition
-
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
@@ -40,12 +39,10 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-
-    #project apps
+    # project apps
     "users",
-
     # Cleanup Media files Management
-    "django_cleanup.apps.CleanupSelectedConfig", # This should be placed in last position
+    "django_cleanup.apps.CleanupSelectedConfig",  # This should be placed in last position
 ]
 
 MIDDLEWARE = [
@@ -125,6 +122,8 @@ USE_I18N = True
 
 USE_TZ = True
 
+# Auth user
+AUTH_USER_MODEL = "users.User"
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
@@ -137,10 +136,10 @@ STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 MEDIA_URL = "/mediafiles/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "mediafiles")
 
-COLLECTFAST_ENABLE = False # Development mode
+COLLECTFAST_ENABLE = False  # Development mode
 
 if config("S3_ACCESS_KEY"):
-    COLLECT_FAST_ENABLE = True  
+    COLLECT_FAST_ENABLE = True
     AWS_ACCESS_KEY_ID = config("S3_ACCESS_KEY")
     AWS_SECRET_ACCESS_KEY = config("S3_SECRET_KEY")
     AWS_STORAGE_BUCKET_NAME = config("S3_BUCKET")
@@ -157,7 +156,6 @@ if config("S3_ACCESS_KEY"):
     INSTALLED_APPS.append("collectfast")
     DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
     COLLECTFAST_STRATEGY = "collectfast.strategies.boto3.Boto3Strategy"
-
 
 
 # Default primary key field type

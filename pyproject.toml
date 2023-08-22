@@ -16,6 +16,7 @@ dependencies = [
   "django-storages",
   "gunicorn",
   "httpx",
+  "Pillow",
   "pytz",
   "psycopg2-binary",
   "python-decouple",
@@ -43,13 +44,25 @@ generate-hashes = true
 
 [tool.flake8]
 max-line-length = 120
-exclude = []
+exclude = [
+    ".venv",
+    ".eggs",
+    ".git",
+    ".hg",
+    ".mypy_cache",
+    ".tox",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+]
 select = "C,E,F,W,B,B950"
 extend-ignore = "E203, F403, F405, E501, E722, F631, W503"
 
 [tool.isort]
 skip = [
     ".env/",
+    ".venv/",
     "impacta_health/"
 ]
 multi_line_output = 3
@@ -58,5 +71,9 @@ include_trailing_comma = true
 force_grid_wrap = 0
 use_parentheses = true
 
+[tool.black]
+line-length = 120
+include = '\.pyi?$'
+exclude = "migrations, .venv"
 [tool.pytest]
 filterwarnings = "ignore::pytest.PytestAssertRewriteWarning"
