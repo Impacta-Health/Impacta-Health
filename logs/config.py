@@ -1,4 +1,4 @@
-from logging import DEBUG, WARNING, StreamHandler, basicConfig, handlers
+from logging import basicConfig, DEBUG, handlers, StreamHandler, WARNING
 
 from decouple import config
 

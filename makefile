@@ -26,7 +26,7 @@ sh:
 	@make exec cmd="bash"
 
 shell:
-	@make exec cmd="./manage.py shell_plus"
+	@make exec cmd="./manage.py shell_plus --plain"
 
 setup:
 	@echo "Setting up the backend..."

@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 import os
 from pathlib import Path
 
-from decouple import config, Csv
+from decouple import Csv, config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    # project apps
+    "django_extensions",
+    # Apps
     "users",
     # Cleanup Media files Management
     "django_cleanup.apps.CleanupSelectedConfig",  # This should be placed in last position
@@ -92,6 +93,15 @@ DATABASES = {
 }
 
 
+# Auth user
+AUTH_USER_MODEL = "users.User"
+
+AUTHENTICATION_BACKENDS = [
+    "users.validators.custom_auth.CustomAuthenticationBackend",
+    "django.contrib.auth.backends.ModelBackend",
+]
+
+
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
@@ -121,9 +131,6 @@ TIME_ZONE = "UTC"
 USE_I18N = True
 
 USE_TZ = True
-
-# Auth user
-AUTH_USER_MODEL = "users.User"
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
