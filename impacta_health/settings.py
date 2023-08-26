@@ -12,7 +12,8 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 import os
 from pathlib import Path
-
+import dj_database_url
+from functools import partial
 from decouple import Csv, config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -81,17 +82,11 @@ WSGI_APPLICATION = "impacta_health.wsgi.application"
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 
+default_db_url = 'sqlite:///' + os.path.join(BASE_DIR / 'db.sqlite3')
+parse_database = partial(dj_database_url.parse, conn_max_age=600)
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": config("DB_NAME"),
-        "USER": config("DB_USER"),
-        "PASSWORD": config("DB_PASSWORD"),
-        "HOST": config("DB_HOST"),
-        "PORT": config("DB_PORT"),
-    },
+    'default': config('DATABASE_URL', default=default_db_url, cast=parse_database)
 }
-
 
 # Auth user
 AUTH_USER_MODEL = "users.User"
