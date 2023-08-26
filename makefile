@@ -7,15 +7,14 @@ down:
 exec:
 	@docker-compose exec project $(cmd)
 
+
 build:
 	@echo "Check env file"
-    cp contrib/env-sample .env
+	cp contrib/env-sample .env
 
 	@echo "build apps"
 	docker-compose build --no-cache
 
-
-	
 compile:
 	@rm -f requirements.txt
 	@rm -f dev-requirements.txt
