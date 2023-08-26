@@ -18,11 +18,11 @@ compile:
 	@rm -f requirements.txt
 	@rm -f dev-requirements.txt
 	@make exec cmd="pip-compile -o requirements.txt pyproject.toml"
-	@make exec cmd="pip-compile --extra dev -o dev-requirements.txt pyproject.toml"
+	@make exec cmd="pip-compile --extra=dev --output-file=dev-requirements.txt pyproject.toml"
 
 compile-dev:
 	@rm -f dev-requirements.txt
-	@make exec cmd="pip-compile --extra dev -o dev-requirements.txt pyproject.toml"
+	@make exec cmd=""
 
 sync:
 	@make exec cmd="pip-sync dev-requirements.txt"
