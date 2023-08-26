@@ -9,7 +9,7 @@ exec:
 
 build:
 	echo "Copying environment variable file."
-	cp contrib/.env-sample .env
+	cp contrib/env-sample .env
     
 	@echo "Starting server"
 	docker-compose build
