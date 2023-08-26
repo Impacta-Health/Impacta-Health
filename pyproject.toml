@@ -46,6 +46,7 @@ generate-hashes = true
 max-line-length = 120
 exclude = [
     ".venv",
+    "venv",
     ".eggs",
     ".git",
     ".hg",
@@ -63,6 +64,7 @@ extend-ignore = "E203, F403, F405, E501, E722, F631, W503"
 skip = [
     ".env/",
     ".venv/",
+    "venv",
     "impacta_health/"
 ]
 multi_line_output = 3
@@ -73,7 +75,15 @@ use_parentheses = true
 
 [tool.black]
 line-length = 120
+target-version = ['py37']
 include = '\.pyi?$'
-exclude = "migrations, .venv"
+extend-exclude = '''
+  .*_pb2.py
+  | \.venv/
+  | venv/
+  | impacta_health/
+  | migrations/
+'''
+
 [tool.pytest]
 filterwarnings = "ignore::pytest.PytestAssertRewriteWarning"

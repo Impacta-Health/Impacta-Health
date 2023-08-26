@@ -1,57 +1,52 @@
-up:
-	docker-compose up project impacta_db mailhog
 
-down:
-	docker-compose down
+py = python manage.py
 
-exec:
-	@docker-compose exec project $(cmd)
+pip:
+	@echo "setup packages manager..."
+	pip install --upgrade pip 
+	pip install pip-tools
+	
+install-deps:
+	@echo "Installing dependecies packages"
+	pip-sync dev-requirements.txt
+
+copy-envs:
+	@echo "Copying environment variables.."
+	cp contrib/env-sample .env
+
+migrations:
+	@echo "Setting migrations"
+	$(py) makemigrations
+	$(py) migrate
 
 build:
-	echo "Copying environment variable file."
-	cp contrib/env-sample .env
-    
-	@echo "Starting server"
-	docker-compose build
+	@echo "Starting initial setup"
+	@make pip
+	@make install-deps
+	@make copy-envs
+	@make migrations
+
+up:
+	$(py) runserver
 
 compile:
-	@rm -f requirements.txt
-	@rm -f dev-requirements.txt
-	@make exec cmd="pip-compile -o requirements.txt pyproject.toml"
-	@make exec cmd="pip-compile --extra=dev --output-file=dev-requirements.txt pyproject.toml"
-
-compile-dev:
-	@rm -f dev-requirements.txt
-	@make exec cmd=""
-
-sync:
-	@make exec cmd="pip-sync dev-requirements.txt"
-
-sh:
-	@make exec cmd="bash"
-
-shell:
-	@make exec cmd="./manage.py shell_plus --plain"
-
-setup:
-	@echo "Setting up the backend..."
-	@echo "Running migrations"
-	@make exec cmd="./manage.py makemigrations"
-	@make exec cmd="./manage.py migrate"
-
+	pip-compile -o requirements.txt pyproject.toml
+	pip-compile --extra=dev --output-file=dev-requirements pyproject.toml
 
 back-formatter:
 	@echo "Formatting code accord Pep8 Style..."
 
 	@echo "Sorting Imports..."
-	@make exec cmd="isort --force-alphabetical-sort-within-sections ."
+	isort --force-alphabetical-sort-within-sections .
 
 	@echo "Formatting code..."
-	@make exec cmd="black ."
+	black .
 
 	@echo "Running flake8"
-	@make exec cmd="flake8"
+	flake8
 
 	@echo "Completed with 0 erros"
 
-
+test:
+	pytest --tb=short -s --cov
+	@make back-formatter

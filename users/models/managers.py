@@ -7,18 +7,6 @@ from users.enums import UserRole
 
 
 class UserManager(BaseUserManager, models.Manager):
-    def create_superuser(self, email, username, first_name, password, **other_fields):
-        if other_fields.get("is_staff") is not True:
-            raise ValueError("Superuser must be assigned to is_staff=True.")
-        if other_fields.get("is_superuser") is not True:
-            raise ValueError("Superuser must be assigned to is_superuser=True.")
-
-        other_fields.setdefault("is_staff", True)
-        other_fields.setdefault("is_superuser", True)
-        other_fields.setdefault("is_active", True)
-
-        return self.create_user(email, username, first_name, password, **other_fields)
-
     def create_user(self, email, username, first_name, password, **other_fields):
         if not email:
             raise ValueError(_("Email must be provide."))
@@ -54,7 +42,7 @@ class DoctorUserManager(UserManager):
         return self.get(username=username)
 
 
-class PatientUserManager(BaseUserManager, models.Manager):
+class PatientUserManager(UserManager):
     def get_queryset(self, *args, **kwargs) -> QuerySet:
         return super().get_queryset().filter(role=UserRole.PATIENT)
 
