@@ -1,5 +1,5 @@
 up:
-	docker-compose up project db mailhog
+	docker-compose up project impacta_db mailhog
 
 down:
 	docker-compose down
@@ -9,11 +9,11 @@ exec:
 
 
 build:
-	@echo "Check env file"
-	cp contrib/env-sample .env
-
-	@echo "build apps"
-	docker-compose build --no-cache
+	if [ ! -f ".env" ]; then
+		echo "Copying environment variable file."
+		cp contrib/.env-sample .env
+	fi
+	docker-compose build
 
 compile:
 	@rm -f requirements.txt
