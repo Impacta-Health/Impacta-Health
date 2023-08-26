@@ -1,5 +1,6 @@
 up:
 	docker-compose up project db mailhog
+
 down:
 	docker-compose down
 
@@ -7,7 +8,13 @@ exec:
 	@docker-compose exec project $(cmd)
 
 build:
-	docker-compose build
+	@echo "Check env file"
+    cp contrib/env-sample .env
+
+	@echo "build apps"
+	docker-compose build --no-cache
+
+
 	
 compile:
 	@rm -f requirements.txt

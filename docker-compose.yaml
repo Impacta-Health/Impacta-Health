@@ -13,13 +13,13 @@ services:
     env_file:
       - ./.env
     depends_on:
-      db:
+      impacta_db:
         condition: service_started
       mailhog:
         condition: service_started
     restart: on-failure
 
-  db:
+  impacta_db:
     image: postgres:15.4-alpine
     volumes:
       - db_data:/var/lib/postgresql/data/
@@ -33,7 +33,7 @@ services:
       timeout: 5s
       retries: 5
     ports:
-      - "5432:5432"
+      - "5436:5432"
 
   mailhog:
     image: mailhog/mailhog:v1.0.0

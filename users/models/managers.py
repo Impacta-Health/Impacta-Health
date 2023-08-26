@@ -38,7 +38,7 @@ class UserManager(BaseUserManager, models.Manager):
         return self.get(username=username)
 
 
-class AdminUserManager(BaseUserManager, models.Manager):
+class AdminUserManager(UserManager):
     def get_queryset(self) -> QuerySet:
         return super().get_queryset().filter(role=UserRole.ADMIN)
 
@@ -46,7 +46,7 @@ class AdminUserManager(BaseUserManager, models.Manager):
         return self.get(username=username)
 
 
-class DoctorUserManager(BaseUserManager, models.Manager):
+class DoctorUserManager(UserManager):
     def get_queryset(self, *args, **kwargs) -> QuerySet:
         return super().get_queryset().filter(role=UserRole.DOCTOR)
 
