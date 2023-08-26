@@ -7,12 +7,11 @@ down:
 exec:
 	@docker-compose exec project $(cmd)
 
-
 build:
-	if [ ! -f ".env" ]; then
-		echo "Copying environment variable file."
-		cp contrib/.env-sample .env
-	fi
+	echo "Copying environment variable file."
+	cp contrib/.env-sample .env
+    
+	@echo "Starting server"
 	docker-compose build
 
 compile:
