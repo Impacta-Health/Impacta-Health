@@ -19,7 +19,7 @@ from users.validators.username_validator import validate_username
 
 
 class User(AbstractUser, PermissionsMixin):
-    DEFAULT_ROLE = None
+    DEFAULT_ROLE = UserRole.ADMIN
 
     username = models.CharField(max_length=30, validators=[validate_username], unique=True)
     email = models.EmailField(validators=[EmailValidator], unique=True)
