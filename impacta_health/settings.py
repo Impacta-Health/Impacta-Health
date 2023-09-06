@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "django_extensions",
     # Apps
+    "tasks",
+    "about",
     "users",
     # Cleanup Media files Management
     "django_cleanup.apps.CleanupSelectedConfig",  # This should be placed in last position
