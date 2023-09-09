@@ -11,9 +11,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- <link rel="manifest" href="site.webmanifest"> -->
-    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'img/favicon.png' %}">
     <!-- Place favicon.ico in the root directory -->
 
+    <!-- Awesome Free Library-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css" integrity="sha384-QYIZto+st3yW+o8+5OHfT6S482Zsvz2WfOzpFSXMF9zqeLcFV0/wlZpMtyFcZALm" crossorigin="anonymous">    <link href="{% static 'fontawesomefree/css/brands.css' %}" rel="stylesheet" type="text/css">
     <!-- CSS here -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
@@ -34,6 +36,16 @@
     <!--[if lte IE 9]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
         <![endif]-->
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+ 
+        <!-- DevExtreme theme -->
+        <link rel="stylesheet" href="https://cdn3.devexpress.com/jslib/23.1.5/css/dx.light.css">
+     
+        <!-- DevExtreme library -->
+        <script type="text/javascript" src="https://cdn3.devexpress.com/jslib/23.1.5/js/dx.all.js"></script>
+    <!-- Library Font Awesome-->
+    <script src="https://kit.fontawesome.com/a42fb6df6b.js" crossorigin="anonymous"></script>
+    <!-- Library Bootstrap Js-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
     <!-- header-start -->
     <header>
@@ -58,7 +70,7 @@
                             <div class="short_contact_list">
                                 <ul>
                                     <li><a href="#"> <i class="fa fa-envelope"></i>impactahealth@gmail.com</a></li>
-                                    <li><a href="#"> <i class="fa fa-phone"></i>(11)5547-0727</a></li>
+                                    <li><a href="#"> <i class="fa-solid fa-headphones"></i>(11)5547-0727</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -70,8 +82,8 @@
                     <div class="row align-items-center">
                         <div class="col-xl-3 col-lg-2">
                             <div class="logo">
-                                <a href="tasks/ImpactaHealth.html">
-                                    <img src="img/logo.png" alt="">
+                                <a href="/">
+                                    <img src="{% static 'img/logo.png'%}" alt="">
                                 </a>
                             </div>
                         </div>
@@ -79,22 +91,10 @@
                             <div class="main-menu  d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">
-                                        <li><a class="active" href="ImpactaHealth.html">home</a></li>
-                                        <li><a href="Department.html">Department</a></li>
-                                        <li><a href="#">blog <i class="ti-angle-down"></i></a>
-                                            <ul class="submenu">
-                                                <li><a href="blog.html">blog</a></li>
-                                                <li><a href="single-blog.html">single-blog</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="#">pages <i class="ti-angle-down"></i></a>
-                                            <ul class="submenu">
-                                                <li><a href="elements.html">elements</a></li>
-                                                <li><a href="about.html">about</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="Doctors.html">Doctors</a></li>
-                                        <li><a href="contact.html">Contact</a></li>
+                                        <li><a class="active" href="/">Início</a></li>
+                                        <li><a href="Department.html">Departamento</a></li>
+                                        <li><a href="Doctors.html">Médicos</a></li>
+                                        <li><a href="contact.html">Contato</a></li>
                                     </ul>
                                 </nav>
                             </div>
@@ -102,7 +102,7 @@
                         <div class="col-xl-3 col-lg-3 d-none d-lg-block">
                             <div class="Appointment">
                                 <div class="book_btn d-none d-lg-block">
-                                    <a class="popup-with-form" href="#test-form">Make an Appointment</a>
+                                    <a class="popup-with-form" href="#test-form">Realize seu Cadastro</a>
                                 </div>
                             </div>
                         </div>
@@ -124,11 +124,11 @@
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="slider_text ">
-                                <h3> <span>Health care</span> <br>
-                                    For Hole Family </h3>
-                                <p>In healthcare sector, service excellence is the facility of <br> the hospital as
-                                    healthcare service provider to consistently.</p>
-                                <a href="#" class="boxed-btn3">Check Our Services</a>
+                                <h3> <span>Assistência médica</span> <br>
+                                    Para a família inteira </h3>
+                                <p>No setor de saúde, a excelência no atendimento é a facilidade do hospital como
+                                    prestador de serviços de saúde de forma consistente.</p>
+                                <a href="#" class="boxed-btn3">Consulte nossas clínicas</a>
                             </div>
                         </div>
                     </div>
@@ -139,11 +139,10 @@
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="slider_text ">
-                                <h3> <span>Health care</span> <br>
-                                    For Hole Family </h3>
-                                <p>In healthcare sector, service excellence is the facility of <br> the hospital as
-                                    healthcare service provider to consistently.</p>
-                                <a href="#" class="boxed-btn3">Check Our Services</a>
+                                <h3> <span>Total Autonomia</span> <br>
+                                    no reagendamento </h3>
+                                <p>Na Impacta Health, você pode optar pelas clínicas mais próximas de você! </p>
+                                <a href="#" class="boxed-btn3">Reagendar consulta</a>
                             </div>
                         </div>
                     </div>
@@ -154,11 +153,10 @@
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="slider_text ">
-                                <h3> <span>Health care</span> <br>
-                                    For Hole Family </h3>
-                                <p>In healthcare sector, service excellence is the facility of <br> the hospital as
-                                    healthcare service provider to consistently.</p>
-                                <a href="#" class="boxed-btn3">Check Our Services</a>
+                                <h3> <span>Contamos com uma equipe</span> <br>
+                                    extremamente capacitada</h3>
+                                <p>Na Impacta Health nos preocupamos com a excelência em nosssos atendimentos e no bem estar dos nossos pacientes.</p>
+                                <a href="#" class="boxed-btn3">Agendar consulta</a>
                             </div>
                         </div>
                     </div>
@@ -175,31 +173,31 @@
                 <div class="col-xl-4 col-md-4">
                     <div class="single_service">
                         <div class="icon">
-                            <i class="flaticon-electrocardiogram"></i>
+                            <i class="fa-solid fa-stethoscope"></i>
                         </div>
-                        <h3>Hospitality</h3>
-                        <p>Clinical excellence must be the priority for any health care service provider.</p>
-                        <a href="#" class="boxed-btn3-white">Apply For a Bed</a>
+                        <h3>Hospitalidade</h3>
+                        <p>A excelência clínica deve ser a prioridade de qualquer prestador de serviços de saúde.</p>
+                        <a href="#" class="boxed-btn3-white">Solicitar Leito</a>
                     </div>
                 </div>
                 <div class="col-xl-4 col-md-4">
                     <div class="single_service">
                         <div class="icon">
-                            <i class="flaticon-emergency-call"></i>
+                            <i class="fa-solid fa-heart-pulse"></i>
                         </div>
-                        <h3>Emergency Care</h3>
-                        <p>Clinical excellence must be the priority for any health care service provider.</p>
+                        <h3>Cuidado Emergêncial</h3>
+                        <p>Possuímos equipamentos médicos com técnologia de ponta e uma equipe de prontidão 24 Horas por dia.</p>
                         <a href="#" class="boxed-btn3-white">+10 672 356 3567</a>
                     </div>
                 </div>
                 <div class="col-xl-4 col-md-4">
                     <div class="single_service">
                         <div class="icon">
-                            <i class="flaticon-first-aid-kit"></i>
+                            <i class="fa-solid fa-crutch"></i>
                         </div>
-                        <h3>Chamber Service</h3>
-                        <p>Clinical excellence must be the priority for any health care service provider.</p>
-                        <a href="#" class="boxed-btn3-white">Make an Appointment</a>
+                        <h3>Exames Laboratoriais</h3>
+                        <p>Descontos exclusivos para seus exames.</p>
+                        <a href="#" class="boxed-btn3-white">Agendar Exames</a>
                     </div>
                 </div>
             </div>
@@ -214,26 +212,25 @@
                 <div class="col-xl-6 col-lg-6">
                     <div class="welcome_thumb">
                         <div class="thumb_1">
-                            <img src="img/about/1.png" alt="">
-                        </div>
+                            <img src="{% static 'img/1.png'%}" alt="">
+                        </div><br><br>
                         <div class="thumb_2">
-                            <img src="img/about/2.png" alt="">
+                            <img src="{% static 'img/2.png'%}" alt="">
                         </div>
                     </div>
                 </div>
                 <div class="col-xl-6 col-lg-6">
                     <div class="welcome_docmed_info">
-                        <h2>Welcome to Docmed</h2>
-                        <h3>Best Care For Your <br>
-                                Good Health</h3>
-                        <p>Esteem spirit temper too say adieus who direct esteem.
-                                It esteems luckily or picture placing drawing. Apartments frequently or motionless on reasonable projecting expression.</p>
+                        <h2>Bem vindo à Impacta Health</h2>
+                        <h3>O melhor cuidado para você.</h3>
+                        <p>Nossa missão é fornecer serviços de qualidade. Somos a mais moderna plataforma de serviços que está revolucionando a forma de cuidar da saúde
+                            .</p>
                         <ul>
-                            <li> <i class="flaticon-right"></i> Apartments frequently or motionless. </li>
-                            <li> <i class="flaticon-right"></i> Duis aute irure dolor in reprehenderit in voluptate.</li>
-                            <li> <i class="flaticon-right"></i> Voluptatem quia voluptas sit aspernatur. </li>
+                            <li> <i class="fa-solid fa-user-doctor"></i>Acompanhamento On-line.</li>
+                            <li> <i class="fa-solid fa-receipt"></i>Aceitamos qualquer plano de saúde.</li>
+                            <li> <i class="fa-solid fa-tablets"></i>Possuímos parcerias com diversas farmácias, afim de facilitar a obtenção de suas medicações. </li>
                         </ul>
-                        <a href="#" class="boxed-btn3-white-2">Learn More</a>
+                        <a href="#" class="boxed-btn3-white-2">Leia mais</a>
                     </div>
                 </div>
             </div>
@@ -247,9 +244,7 @@
             <div class="row">
                 <div class="col-xl-12">
                     <div class="section_title text-center mb-55">
-                        <h3>Our Departments</h3>
-                        <p>Esteem spirit temper too say adieus who direct esteem. <br>
-                            It esteems luckily or picture placing drawing. </p>
+                        <h3>Nossas Especialidades</h3>
                     </div>
                 </div>
             </div>
@@ -260,21 +255,20 @@
                             <img src="img/department/1.png" alt="">
                         </div>
                         <div class="department_content">
-                            <h3><a href="#">Eye Care</a></h3>
-                            <p>Esteem spirit temper too say adieus who direct esteem.</p>
-                            <a href="#" class="learn_more">Learn More</a>
+                                <i class="fa-solid fa-eye"></i>
+                            <h3><a href="#">Oftalmologista</a></h3>
+                            <p>Equipamentos oftalmológicos para
+                                diagnósticos precisos.</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-xl-4 col-md-6 col-lg-4">
                     <div class="single_department">
-                        <div class="department_thumb">
-                            <img src="img/department/2.png" alt="">
-                        </div>
+                        <div class="department_thumb"></div>
                         <div class="department_content">
-                            <h3><a href="#">Physical Therapy</a></h3>
-                            <p>Esteem spirit temper too say adieus who direct esteem.</p>
-                            <a href="#" class="learn_more">Learn More</a>
+                            <i class="fa-solid fa-brain"></i>
+                            <h3><a href="#">Psicologia</a></h3>
+                            <p>Os psicólogos são criteriosamente selecionados.</p>
                         </div>
                     </div>
                 </div>
@@ -284,9 +278,9 @@
                             <img src="img/department/3.png" alt="">
                         </div>
                         <div class="department_content">
-                            <h3><a href="#">Dental Care</a></h3>
-                            <p>Esteem spirit temper too say adieus who direct esteem.</p>
-                            <a href="#" class="learn_more">Learn More</a>
+                            <i class="fa-solid fa-tooth"></i>
+                            <h3><a href="#">Odontologia</a></h3>
+                            <p>Os planos oferecidos possuem uma ampla rede credenciada. Você terá atendimento em qualquer lugar do Brasil.</p>
                         </div>
                     </div>
                 </div>
@@ -296,9 +290,9 @@
                             <img src="img/department/4.png" alt="">
                         </div>
                         <div class="department_content">
-                            <h3><a href="#">Diagnostic Test</a></h3>
-                            <p>Esteem spirit temper too say adieus who direct esteem.</p>
-                            <a href="#" class="learn_more">Learn More</a>
+                            <i class="fa-solid fa-clipboard-user"></i>
+                            <h3><a href="#">Diagnósticos</a></h3>
+                            <p>Com todo o cuidado, dedicação e profissionalismo.</p>
                         </div>
                     </div>
                 </div>
@@ -308,9 +302,9 @@
                             <img src="img/department/5.png" alt="">
                         </div>
                         <div class="department_content">
-                            <h3><a href="#">Skin Surgery</a></h3>
-                            <p>Esteem spirit temper too say adieus who direct esteem.</p>
-                            <a href="#" class="learn_more">Learn More</a>
+                            <i class="fa-solid fa-head-side-mask"></i>
+                            <h3><a href="#">Cirurgias</a></h3>
+                            <p>Nosso corpo clínico interdisciplinar trabalha de forma integrada para oferecer o melhor para nossos pacientes.</p>
                         </div>
                     </div>
                 </div>
@@ -320,9 +314,9 @@
                             <img src="img/department/6.png" alt="">
                         </div>
                         <div class="department_content">
-                            <h3><a href="#">Surgery Service</a></h3>
-                            <p>Esteem spirit temper too say adieus who direct esteem.</p>
-                            <a href="#" class="learn_more">Learn More</a>
+                            <i class="fa-solid fa-house-chimney-medical"></i>
+                            <h3><a href="#">Atendimentos à domicílio</a></h3>
+                            <p>Atendimento de ponta, a onde quer que você esteja.</p>
                         </div>
                     </div>
                 </div>
@@ -340,15 +334,13 @@
                         <div class="col-xl-10 offset-xl-1">
                             <div class="testmonial_info text-center">
                                 <div class="quote">
-                                    <i class="flaticon-straight-quotes"></i>
+                                    <i class="fa-solid fa-quote-left"></i>
+                                    <h3>Depoimento
+                                        de quem confia!</h3>
                                 </div>
-                                <p>Donec imperdiet congue orci consequat mattis. Donec rutrum porttitor <br>
-                                    sollicitudin. Pellentesque id dolor tempor sapien feugiat ultrices nec sed neque.
-                                    <br>
-                                    Fusce ac mattis nulla. Morbi eget ornare dui. </p>
-                                <div class="testmonial_author">
-                                    <h4>Asana Korim</h4>
-                                </div>
+                                <p>"Toda a equipe médica é totalmente competente e são excelentes profissionais, indico para todo mundo. A recuperação da sirurgias que fiz tem evoluído bastante. Não abro mão." <br>
+                                    Maria Eugênia.
+                                    <br></p>
                             </div>
                         </div>
                     </div>
@@ -360,15 +352,11 @@
                         <div class="col-xl-10 offset-xl-1">
                             <div class="testmonial_info text-center">
                                 <div class="quote">
-                                    <i class="flaticon-straight-quotes"></i>
-                                </div>
-                                <p>Donec imperdiet congue orci consequat mattis. Donec rutrum porttitor <br>
-                                    sollicitudin. Pellentesque id dolor tempor sapien feugiat ultrices nec sed neque.
-                                    <br>
-                                    Fusce ac mattis nulla. Morbi eget ornare dui. </p>
-                                <div class="testmonial_author">
-                                    <h4>Asana Korim</h4>
-                                </div>
+                                    <i class="fa-solid fa-quote-left"></i>
+                                    <h3>Depoimento
+                                        de quem confia!</h3></div>
+                                <p>"Todos muito educados, atenciosos e profissionais. Tenho muito respeito por toda a equipe, só tenho elogios e muito à agradecer."<br>
+                                    Newton Herrera Feitosa</p>
                             </div>
                         </div>
                     </div>
@@ -380,15 +368,11 @@
                         <div class="col-xl-10 offset-xl-1">
                             <div class="testmonial_info text-center">
                                 <div class="quote">
-                                    <i class="flaticon-straight-quotes"></i>
-                                </div>
-                                <p>Donec imperdiet congue orci consequat mattis. Donec rutrum porttitor <br>
-                                    sollicitudin. Pellentesque id dolor tempor sapien feugiat ultrices nec sed neque.
-                                    <br>
-                                    Fusce ac mattis nulla. Morbi eget ornare dui. </p>
-                                <div class="testmonial_author">
-                                    <h4>Asana Korim</h4>
-                                </div>
+                                    <i class="fa-solid fa-quote-left"></i>
+                                    <h3>Depoimento
+                                        de quem confia!</h3></div>
+                                <p>"O acolhimento, cuidado, atenção, carinho e pronto atendimento, não é apenas um hospital, é um lar! Já era fã, agora então, nem se fala!"<br>
+                                    Graciela da Cunha</p>
                             </div>
                         </div>
                     </div>
@@ -396,109 +380,6 @@
             </div>
         </div>
     </div>
-    <!-- testmonial_area_end -->
-
-    <!-- business_expert_area_start  -->
-    <div class="business_expert_area">
-        <div class="business_tabs_area">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-12">
-                        <ul class="nav" id="myTab" role="tablist">
-                            <li class="nav-item">
-                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
-                            aria-selected="true">Excellent Services</a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
-                            aria-selected="false">Qualified Doctors</a>
-                            </li>
-
-
-                            <li class="nav-item">
-                                <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact"
-                            aria-selected="false">Emergency Departments</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-        <div class="container">
-            <div class="border_bottom">
-                    <div class="tab-content" id="myTabContent">
-                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                
-                                    <div class="row align-items-center">
-                                            <div class="col-xl-6 col-md-6">
-                                                <div class="business_info">
-                                                    <div class="icon">
-                                                        <i class="flaticon-first-aid-kit"></i>
-                                                    </div>
-                                                    <h3>Leading edge care for Your family</h3>
-                                                    <p>Esteem spirit temper too say adieus who direct esteem.
-                                                        It esteems luckily picture placing drawing. Apartments frequently or motionless on
-                                                        reasonable projecting expression.
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <div class="col-xl-6 col-md-6">
-                                                <div class="business_thumb">
-                                                    <img src="img/about/business.png" alt="">
-                                                </div>
-                                            </div>
-                                        </div>
-                            </div>
-                            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                                    <div class="row align-items-center">
-                                            <div class="col-xl-6 col-md-6">
-                                                <div class="business_info">
-                                                    <div class="icon">
-                                                        <i class="flaticon-first-aid-kit"></i>
-                                                    </div>
-                                                    <h3>Leading edge care for Your family</h3>
-                                                    <p>Esteem spirit temper too say adieus who direct esteem.
-                                                        It esteems luckily picture placing drawing. Apartments frequently or motionless on
-                                                        reasonable projecting expression.
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <div class="col-xl-6 col-md-6">
-                                                <div class="business_thumb">
-                                                    <img src="img/about/business.png" alt="">
-                                                </div>
-                                            </div>
-                                        </div>
-                            </div>
-                            <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-                                    <div class="row align-items-center">
-                                            <div class="col-xl-6 col-md-6">
-                                                <div class="business_info">
-                                                    <div class="icon">
-                                                        <i class="flaticon-first-aid-kit"></i>
-                                                    </div>
-                                                    <h3>Leading edge care for Your family</h3>
-                                                    <p>Esteem spirit temper too say adieus who direct esteem.
-                                                        It esteems luckily picture placing drawing. Apartments frequently or motionless on
-                                                        reasonable projecting expression.
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <div class="col-xl-6 col-md-6">
-                                                <div class="business_thumb">
-                                                    <img src="img/about/business.png" alt="">
-                                                </div>
-                                            </div>
-                                        </div>
-                            </div>
-                          </div>
-            </div>
-        </div>
-    </div>
-    <!-- business_expert_area_end  -->
-
 
     <!-- expert_doctors_area_start -->
     <div class="expert_doctors_area">
@@ -506,7 +387,7 @@
             <div class="row">
                 <div class="col-xl-12">
                     <div class="doctors_title mb-55">
-                        <h3>Expert Doctors</h3>
+                        <h3>Médicos Especializados</h3>
                     </div>
                 </div>
             </div>
@@ -515,56 +396,41 @@
                     <div class="expert_active owl-carousel">
                         <div class="single_expert">
                             <div class="expert_thumb">
-                                <img src="img/experts/1.png" alt="">
+                                <img src="{% static 'img/experts1.png'%}" alt="">
                             </div>
                             <div class="experts_name text-center">
                                 <h3>Mirazul Alom</h3>
-                                <span>Neurologist</span>
+                                <span>Neurologista</span>
                             </div>
                         </div>
                         <div class="single_expert">
                             <div class="expert_thumb">
-                                <img src="img/experts/2.png" alt="">
+                                <img src="{% static 'img/experts2.png'%}" alt="">
                             </div>
                             <div class="experts_name text-center">
-                                <h3>Mirazul Alom</h3>
-                                <span>Neurologist</span>
+                                <h3>Frederick Manson</h3>
+                                <span>Odontologista</span>
                             </div>
                         </div>
                         <div class="single_expert">
                             <div class="expert_thumb">
-                                <img src="img/experts/3.png" alt="">
+                                <img src="{% static 'img/experts3.png'%}" alt="">
                             </div>
                             <div class="experts_name text-center">
-                                <h3>Mirazul Alom</h3>
-                                <span>Neurologist</span>
+                                <h3>Anna Bacal</h3>
+                                <span>Cirurgiã</span>
                             </div>
                         </div>
                         <div class="single_expert">
                             <div class="expert_thumb">
-                                <img src="img/experts/4.png" alt="">
+                                <img src="{% static 'img/experts4.png'%}" alt="">
                             </div>
                             <div class="experts_name text-center">
-                                <h3>Mirazul Alom</h3>
-                                <span>Neurologist</span>
+                                <h3>Alexandre Kobashi</h3>
+                                <span>Oftalmologista</span>
                             </div>
                         </div>
-                        <div class="single_expert">
-                            <div class="expert_thumb">
-                                <img src="img/experts/1.png" alt="">
-                            </div>
-                            <div class="experts_name text-center">
-                                <h3>Mirazul Alom</h3>
-                                <span>Neurologist</span>
-                            </div>
-                        </div>
-                        <div class="single_expert">
-                            <div class="expert_thumb">
-                                <img src="img/experts/2.png" alt="">
-                            </div>
-                            <div class="experts_name text-center">
-                                <h3>Mirazul Alom</h3>
-                                <span>Neurologist</span>
+
                             </div>
                         </div>
                     </div>
@@ -581,8 +447,7 @@
                 <div class="col-xl-6">
                     <div class="single_emergency d-flex align-items-center justify-content-center emergency_bg_1 overlay_skyblue">
                         <div class="info">
-                            <h3>For Any Emergency Contact</h3>
-                            <p>Esteem spirit temper too say adieus.</p>
+                            <h3>Contato Emergêncial</h3>
                         </div>
                         <div class="info_button">
                             <a href="#" class="boxed-btn3-white">+10 378 4673 467</a>
@@ -592,11 +457,7 @@
                 <div class="col-xl-6">
                     <div class="single_emergency d-flex align-items-center justify-content-center emergency_bg_2 overlay_skyblue">
                         <div class="info">
-                            <h3>Make an Online Appointment</h3>
-                            <p>Esteem spirit temper too say adieus.</p>
-                        </div>
-                        <div class="info_button">
-                            <a href="#" class="boxed-btn3-white">Make an Appointment</a>
+                            <h3>Realize Seu Cadastro Para Uma Melhor Imersão</h3>
                         </div>
                     </div>
                 </div>
@@ -618,19 +479,13 @@
                                     </a>
                                 </div>
                                 <p>
-                                        Firmament morning sixth subdue darkness 
-                                        creeping gathered divide.
+                                        Fique por dentro das atualizações, e faça parte das nossas redes.
                                 </p>
                                 <div class="socail_links">
                                     <ul>
                                         <li>
                                             <a href="#">
-                                                <i class="ti-facebook"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="ti-twitter-alt"></i>
+                                                <i class="fa fa-facebook"></i>
                                             </a>
                                         </li>
                                         <li>
@@ -643,44 +498,14 @@
     
                             </div>
                         </div>
-                        <div class="col-xl-2 offset-xl-1 col-md-6 col-lg-3">
-                            <div class="footer_widget">
-                                <h3 class="footer_title">
-                                        Departments
-                                </h3>
-                                <ul>
-                                    <li><a href="#">Eye Care</a></li>
-                                    <li><a href="#">Skin Care</a></li>
-                                    <li><a href="#">Pathology</a></li>
-                                    <li><a href="#">Medicine</a></li>
-                                    <li><a href="#">Dental</a></li>
-                                </ul>
-    
-                            </div>
-                        </div>
-                        <div class="col-xl-2 col-md-6 col-lg-2">
-                            <div class="footer_widget">
-                                <h3 class="footer_title">
-                                        Useful Links
-                                </h3>
-                                <ul>
-                                    <li><a href="#">About</a></li>
-                                    <li><a href="#">Blog</a></li>
-                                    <li><a href="#">About</a></li>
-                                    <li><a href="#"> Contact</a></li>
-                                    <li><a href="#"> Appointment</a></li>
-                                </ul>
-                            </div>
-                        </div>
+                        
                         <div class="col-xl-3 col-md-6 col-lg-3">
                             <div class="footer_widget">
-                                <h3 class="footer_title">
-                                        Address
-                                </h3>
+                                <br><br><br>
                                 <p>
-                                    200, D-block, Green lane USA <br>
+                                    Av Paulista, 1500 São Paulo <br>
                                     +10 367 467 8934 <br>
-                                    docmed@contact.com
+                                    impactahealth@gmail.com
                                 </p>
                             </div>
                         </div>
@@ -787,6 +612,12 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
                 rightIcon: '<span class="fa fa-caret-down"></span>'
             }
         });
+        
+    $("#active")({
+          function() {
+            window.location.reload();
+    }
+});
         $('#datepicker2').datepicker({
             iconsLibrary: 'fontawesome',
             icons: {

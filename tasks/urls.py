@@ -5,6 +5,6 @@ from.import views
 
 urlpatterns = [
    # path("ImpactaHealth/", views.ImpactaHealth),
-    path("ImpactaHealth/", views.HtmlImpactaHealth, name="HtmlImpactaHealth"),
-    path("ImpactaHealth/tasks/", views.home, name="home"),
+    path("", views.HtmlImpactaHealth, name="HtmlImpactaHealth"),
+    
 ]

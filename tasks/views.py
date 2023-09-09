@@ -11,4 +11,4 @@ def HtmlImpactaHealth(request):
     return render(request, "tasks/ImpactaHealth.html")
 
 def home(request):
-    return render(request, "tasks/ImpactaHealth.html")
+    return render(request, "tasks/index.html")
