@@ -11,4 +11,7 @@ def HtmlImpactaHealth(request):
     return render(request, "tasks/ImpactaHealth.html")
 
 def home(request):
-    return render(request, "tasks/index.html")
+    return render(request, "tasks/ConsultaExames.html")
+
+def Rconsultas(request):
+    return render(request, "tasks/ReagendarConsulta.html")
