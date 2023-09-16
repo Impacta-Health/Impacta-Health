@@ -1,0 +1,133 @@
+body {
+    background-color: #f0f0f0;
+    /* Alterado para um cinza claro */
+}
+
+.registration-form {
+    background-color: #ffffff;
+    /* Alterado para branco */
+    color: #333;
+    /* Alterado para uma cor de texto mais escura */
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 50px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.registration-form h2 {
+    text-align: center;
+    color: #007BFF;
+    /* Adicionada cor ao cabeçalho */
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label,
+.form-group input,
+.form-control,
+/* Adicionada a classe .form-control */
+.btn-primary,
+/* Adicionada a classe .btn-primary */
+.form-select {
+    /* Adicionada a classe .form-select */
+    display: block;
+    width: 100%;
+    padding: 10px;
+    /* Espaçamento interno */
+    border: none;
+    border-radius: 4px;
+    background-color: #f1f1f1;
+    /* Cor de fundo */
+    margin: 10px 0;
+    /* Espaçamento vertical entre os campos */
+}
+
+.invalid-feedback {
+    color: #dc3545;
+    font-size: 80%;
+    margin-top: 4px;
+    font-family: 'Roboto', sans-serif;
+    /* Exemplo de fonte moderna: Roboto */
+}
+
+/* CSS para o botão de enviar */
+.boxed-btn3 {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 60px;
+    /* Aumentando ainda mais a largura do botão */
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 0 auto;
+    /* Centraliza horizontalmente */
+    display: block;
+    /* Torna o botão uma div de bloco para centralização vertical */
+    margin-top: 20px;
+    /* Espaçamento superior para centralização vertical */
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+/* Adicione um efeito de hover */
+.boxed-btn3:hover {
+    background-color: #0056b3;
+    /* Alterando a cor de fundo no hover */
+    transform: scale(1.05);
+    /* Redimensionar ligeiramente no hover */
+}
+
+h2 {
+    color: #007BFF;
+    font-family: 'Arial', sans-serif;
+    /* Substitua 'Arial' pela fonte desejada */
+    font-size: 24px;
+    /* Tamanho da fonte */
+    font-weight: bold;
+    /* Peso da fonte */
+    text-align: center;
+    margin-bottom: 20px;
+    /* Espaçamento inferior */
+}
+
+.error-shake {
+    animation: shake 0.5s;
+}
+
+@keyframes shake {
+    0% {
+        transform: translateX(0);
+    }
+
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+        transform: translateX(-5px);
+    }
+
+    20%,
+    40%,
+    60%,
+    80%,
+    100% {
+        transform: translateX(5px);
+    }
+}
+
+<style>
+
+/* Estilo para campos com erro */
+.error-field {
+    border: 1px solid red;
+}
+
+/* Estilo para a mensagem de erro */
+.error-message {
+    color: red;
+}
+

@@ -46,6 +46,7 @@ class CustomUsernameValidator:
     def validate(self, username_field):
         errors = []
         for validator in self.__default_validator():
+            print(username_field)
             try:
                 validator(username_field)
             except ValidationError as error:
@@ -58,6 +59,7 @@ class CustomUsernameValidator:
 
 
 def validate_username(value):
+    print("Entrou")
     validator = CustomUsernameValidator()
     validator.validate(value)
     return value

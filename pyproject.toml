@@ -65,7 +65,6 @@ skip = [
     ".env/",
     ".venv/",
     "venv",
-    "impacta_health/"
 ]
 multi_line_output = 3
 skip_glob = "**/migrations/*.py"
@@ -81,7 +80,6 @@ extend-exclude = '''
   .*_pb2.py
   | \.venv/
   | venv/
-  | impacta_health/
   | migrations/
 '''
 
