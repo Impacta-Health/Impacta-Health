@@ -1,0 +1,429 @@
+[
+	{
+		"model": "auth.permission",
+		"fields": {
+			"name": "Can add log entry",
+			"content_type": ["admin", "logentry"],
+			"codename": "add_logentry"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"fields": {
+			"name": "Can change log entry",
+			"content_type": ["admin", "logentry"],
+			"codename": "change_logentry"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"fields": {
+			"name": "Can delete log entry",
+			"content_type": ["admin", "logentry"],
+			"codename": "delete_logentry"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"fields": {
+			"name": "Can view log entry",
+			"content_type": ["admin", "logentry"],
+			"codename": "view_logentry"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"fields": {
+			"name": "Can add permission",
+			"content_type": ["auth", "permission"],
+			"codename": "add_permission"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"fields": {
+			"name": "Can change permission",
+			"content_type": ["auth", "permission"],
+			"codename": "change_permission"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"fields": {
+			"name": "Can delete permission",
+			"content_type": ["auth", "permission"],
+			"codename": "delete_permission"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"fields": {
+			"name": "Can view permission",
+			"content_type": ["auth", "permission"],
+			"codename": "view_permission"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"fields": {
+			"name": "Can add group",
+			"content_type": ["auth", "group"],
+			"codename": "add_group"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"fields": {
+			"name": "Can change group",
+			"content_type": ["auth", "group"],
+			"codename": "change_group"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"fields": {
+			"name": "Can delete group",
+			"content_type": ["auth", "group"],
+			"codename": "delete_group"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"fields": {
+			"name": "Can view group",
+			"content_type": ["auth", "group"],
+			"codename": "view_group"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"fields": {
+			"name": "Can add content type",
+			"content_type": ["contenttypes", "contenttype"],
+			"codename": "add_contenttype"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"fields": {
+			"name": "Can change content type",
+			"content_type": ["contenttypes", "contenttype"],
+			"codename": "change_contenttype"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"fields": {
+			"name": "Can delete content type",
+			"content_type": ["contenttypes", "contenttype"],
+			"codename": "delete_contenttype"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"fields": {
+			"name": "Can view content type",
+			"content_type": ["contenttypes", "contenttype"],
+			"codename": "view_contenttype"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"fields": {
+			"name": "Can add session",
+			"content_type": ["sessions", "session"],
+			"codename": "add_session"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"fields": {
+			"name": "Can change session",
+			"content_type": ["sessions", "session"],
+			"codename": "change_session"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"fields": {
+			"name": "Can delete session",
+			"content_type": ["sessions", "session"],
+			"codename": "delete_session"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"fields": {
+			"name": "Can view session",
+			"content_type": ["sessions", "session"],
+			"codename": "view_session"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"fields": {
+			"name": "Can add user",
+			"content_type": ["users", "user"],
+			"codename": "add_user"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"fields": {
+			"name": "Can change user",
+			"content_type": ["users", "user"],
+			"codename": "change_user"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"fields": {
+			"name": "Can delete user",
+			"content_type": ["users", "user"],
+			"codename": "delete_user"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"fields": {
+			"name": "Can view user",
+			"content_type": ["users", "user"],
+			"codename": "view_user"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"fields": {
+			"name": "Can add patient user profile",
+			"content_type": ["users", "patientuserprofile"],
+			"codename": "add_patientuserprofile"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"fields": {
+			"name": "Can change patient user profile",
+			"content_type": ["users", "patientuserprofile"],
+			"codename": "change_patientuserprofile"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"fields": {
+			"name": "Can delete patient user profile",
+			"content_type": ["users", "patientuserprofile"],
+			"codename": "delete_patientuserprofile"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"fields": {
+			"name": "Can view patient user profile",
+			"content_type": ["users", "patientuserprofile"],
+			"codename": "view_patientuserprofile"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"fields": {
+			"name": "Can view all profiles",
+			"content_type": ["users", "patientuserprofile"],
+			"codename": "can view profiles"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"fields": {
+			"name": "Can add doctor user profile",
+			"content_type": ["users", "doctoruserprofile"],
+			"codename": "add_doctoruserprofile"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"fields": {
+			"name": "Can change doctor user profile",
+			"content_type": ["users", "doctoruserprofile"],
+			"codename": "change_doctoruserprofile"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"fields": {
+			"name": "Can delete doctor user profile",
+			"content_type": ["users", "doctoruserprofile"],
+			"codename": "delete_doctoruserprofile"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"fields": {
+			"name": "Can view doctor user profile",
+			"content_type": ["users", "doctoruserprofile"],
+			"codename": "view_doctoruserprofile"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"fields": {
+			"name": "Can view all profiles",
+			"content_type": ["users", "doctoruserprofile"],
+			"codename": "can view profiles"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"fields": {
+			"name": "Can add admin user profile",
+			"content_type": ["users", "adminuserprofile"],
+			"codename": "add_adminuserprofile"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"fields": {
+			"name": "Can change admin user profile",
+			"content_type": ["users", "adminuserprofile"],
+			"codename": "change_adminuserprofile"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"fields": {
+			"name": "Can delete admin user profile",
+			"content_type": ["users", "adminuserprofile"],
+			"codename": "delete_adminuserprofile"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"fields": {
+			"name": "Can view admin user profile",
+			"content_type": ["users", "adminuserprofile"],
+			"codename": "view_adminuserprofile"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"fields": {
+			"name": "Can view all profiles",
+			"content_type": ["users", "adminuserprofile"],
+			"codename": "can view profiles"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"fields": {
+			"name": "Can add admin user",
+			"content_type": ["users", "adminuser"],
+			"codename": "add_adminuser"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"fields": {
+			"name": "Can change admin user",
+			"content_type": ["users", "adminuser"],
+			"codename": "change_adminuser"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"fields": {
+			"name": "Can delete admin user",
+			"content_type": ["users", "adminuser"],
+			"codename": "delete_adminuser"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"fields": {
+			"name": "Can view admin user",
+			"content_type": ["users", "adminuser"],
+			"codename": "view_adminuser"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"fields": {
+			"name": "Can add doctor user",
+			"content_type": ["users", "doctoruser"],
+			"codename": "add_doctoruser"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"fields": {
+			"name": "Can change doctor user",
+			"content_type": ["users", "doctoruser"],
+			"codename": "change_doctoruser"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"fields": {
+			"name": "Can delete doctor user",
+			"content_type": ["users", "doctoruser"],
+			"codename": "delete_doctoruser"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"fields": {
+			"name": "Can view doctor user",
+			"content_type": ["users", "doctoruser"],
+			"codename": "view_doctoruser"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"fields": {
+			"name": "Can add patient user",
+			"content_type": ["users", "patientuser"],
+			"codename": "add_patientuser"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"fields": {
+			"name": "Can change patient user",
+			"content_type": ["users", "patientuser"],
+			"codename": "change_patientuser"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"fields": {
+			"name": "Can delete patient user",
+			"content_type": ["users", "patientuser"],
+			"codename": "delete_patientuser"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"fields": {
+			"name": "Can view patient user",
+			"content_type": ["users", "patientuser"],
+			"codename": "view_patientuser"
+		}
+	},
+	{
+		"model": "users.user",
+		"fields": {
+			"password": "pbkdf2_sha256$600000$mfbikVg9VRKuXuffKXDApe$FcvSSsI2quwGHRycWMcr7vrDCQP/48rK4K5jdAV10Ho=",
+			"last_login": null,
+			"is_superuser": true,
+			"first_name": "Admin",
+			"last_name": "User",
+			"is_staff": true,
+			"is_active": true,
+			"date_joined": "2023-09-16T22:59:43.554Z",
+			"username": "admin",
+			"email": "",
+			"role": "Admin",
+			"updated_at": "2023-09-16T22:59:43.892Z",
+			"groups": [],
+			"user_permissions": []
+		}
+	}
+]
