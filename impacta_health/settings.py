@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "django_extensions",
     # Apps
+    "tasks",
+    "about",
     "users",
     # Cleanup Media files Management
     "django_cleanup.apps.CleanupSelectedConfig",  # This should be placed in last position
@@ -130,6 +132,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
+STATIC_URL = "/static/"
 STATIC_URL = "/staticfiles/"
 
 STATIC_URL = "/staticfiles/"

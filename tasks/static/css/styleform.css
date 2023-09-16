@@ -1,0 +1,32 @@
+.form-control{
+    width: 0%;
+    width: 80%;
+    padding-left: 40px;
+    align-items: center;
+    display: block; /* Necessário para o margin funcionar */
+     margin-left: auto; /* aqui */
+    margin-right: auto; /* e aqui */
+    border: none;
+    border-radius: 4px;
+    background-color: #f1f1f1;
+
+}
+
+.btn-primary{
+    margin-left: auto; /* aqui */
+    margin-right: auto; /* e aqui */
+}
+
+.form-select{
+    width: 0%;
+    width: 20%;
+    padding-left: 0x;
+    padding-left: 100x;
+  align-items: center;
+    display: block; /* Necessário para o margin funcionar */
+     margin-left: auto; /* aqui */
+    margin-right: auto; /* e aqui */
+  border: none;
+  border-radius: 4px;
+  background-color: #f1f1f1;
+}
