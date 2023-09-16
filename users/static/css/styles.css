@@ -1,14 +1,19 @@
+/* Estilos globais */
 body {
     background-color: #f0f0f0;
     /* Alterado para um cinza claro */
+    font-family: 'Arial', sans-serif;
+    /* Defina a fonte global desejada */
 }
 
+/* Estilos para o formulário de registro */
 .registration-form {
     background-color: #ffffff;
     /* Alterado para branco */
     color: #333;
     /* Alterado para uma cor de texto mais escura */
-    max-width: 400px;
+    width: 600px;
+    /* Definido o tamanho igual para largura e altura */
     margin: 0 auto;
     padding: 20px;
     border-radius: 5px;
@@ -22,36 +27,56 @@ body {
     /* Adicionada cor ao cabeçalho */
 }
 
+/* Estilos para grupos de formulários (campos, labels e selects) */
 .form-group {
     margin-bottom: 20px;
+    /* Espaçamento inferior entre os campos */
 }
 
+/* Estilo para campos de formulário quando estão selecionados */
+.form-group input:focus,
+.form-control:focus,
+.form-select:focus {
+    border: 2px solid #007BFF;
+    /* Cor da borda azul ao selecionar */
+    outline: none;
+    /* Remova o contorno padrão do campo selecionado */
+}
+
+/* Estilo para a seleção de texto dentro dos campos */
+.form-group input::selection,
+.form-control::selection,
+.form-select::selection {
+    background-color: #007BFF;
+    /* Cor de fundo azul quando o texto está selecionado */
+    color: white;
+    /* Cor do texto selecionado */
+}
+
+/* Estilos para campos de formulário, botões e selects */
 .form-group label,
 .form-group input,
 .form-control,
-/* Adicionada a classe .form-control */
 .btn-primary,
-/* Adicionada a classe .btn-primary */
 .form-select {
-    /* Adicionada a classe .form-select */
     display: block;
-    width: 100%;
-    padding: 10px;
-    /* Espaçamento interno */
+    width: 93%;
+    padding: 20px;
     border: none;
     border-radius: 4px;
     background-color: #f1f1f1;
-    /* Cor de fundo */
-    margin: 10px 0;
-    /* Espaçamento vertical entre os campos */
+    margin-bottom: 10px;
+    /* Espaçamento inferior entre os campos */
 }
 
+/* Estilo para mensagens de erro */
 .invalid-feedback {
     color: #dc3545;
     font-size: 80%;
-    margin-top: 4px;
     font-family: 'Roboto', sans-serif;
-    /* Exemplo de fonte moderna: Roboto */
+    text-align: left;
+    margin-bottom: 10px;
+    /* Espaçamento inferior entre as mensagens de erro */
 }
 
 /* CSS para o botão de enviar */
@@ -59,20 +84,17 @@ body {
     background-color: #007BFF;
     color: white;
     border: none;
-    padding: 10px 60px;
-    /* Aumentando ainda mais a largura do botão */
+    padding: 10px 30px;
     border-radius: 10px;
     cursor: pointer;
-    margin: 0 auto;
-    /* Centraliza horizontalmente */
     display: block;
-    /* Torna o botão uma div de bloco para centralização vertical */
+    margin: 0 auto;
     margin-top: 20px;
     /* Espaçamento superior para centralização vertical */
     transition: background-color 0.3s ease, transform 0.1s ease;
 }
 
-/* Adicione um efeito de hover */
+/* Efeito de hover para o botão */
 .boxed-btn3:hover {
     background-color: #0056b3;
     /* Alterando a cor de fundo no hover */
@@ -80,6 +102,7 @@ body {
     /* Redimensionar ligeiramente no hover */
 }
 
+/* Estilos para o cabeçalho H2 */
 h2 {
     color: #007BFF;
     font-family: 'Arial', sans-serif;
@@ -93,6 +116,7 @@ h2 {
     /* Espaçamento inferior */
 }
 
+/* Animação de shake para campos com erro */
 .error-shake {
     animation: shake 0.5s;
 }
@@ -118,16 +142,18 @@ h2 {
         transform: translateX(5px);
     }
 }
-
-<style>
-
 /* Estilo para campos com erro */
 .error-field {
     border: 1px solid red;
 }
 
-/* Estilo para a mensagem de erro */
+/* Estilo para as mensagens de erro */
 .error-message {
     color: red;
+    text-align: center;
+    /* Centralizar o texto */
+    margin: 0 auto;
+    /* Centralizar horizontalmente */
+    padding: 5px 0;
+    /* Adicionar algum espaçamento para cima e para baixo */
 }
-
