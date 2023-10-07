@@ -31,7 +31,7 @@ up:
 
 compile:
 	pip-compile -o requirements.txt pyproject.toml
-	pip-compile --extra=dev --output-file=dev-requirements pyproject.toml
+	pip-compile --extra=dev --output-file=dev-requirements.txt pyproject.toml
 
 back-formatter:
 	@echo "Formatting code accord Pep8 Style..."
@@ -50,3 +50,16 @@ back-formatter:
 test:
 	pytest --tb=short -s --cov
 	@make back-formatter
+
+flush:
+	@echo "Reseting DATABASE..."
+	$(py) reset_db --noinput --close-sessions
+	@make migrations
+
+dump:
+	$(py) dumpdata auth users.user --natural-primary --natural-foreign > utils/fixtures.json
+
+load:
+	@make flush
+	$(py) loaddata utils/fixtures.json
+

@@ -61,3 +61,7 @@ def validate_username(value):
     validator = CustomUsernameValidator()
     validator.validate(value)
     return value
+
+
+if __name__ == "__main__":
+    ...

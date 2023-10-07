@@ -7,20 +7,50 @@ from users.enums import UserRole
 
 
 class UserManager(BaseUserManager, models.Manager):
-    def create_user(self, email, username, first_name, password, **other_fields):
-        if not email:
-            raise ValueError(_("Email must be provide."))
-
+    def create_user(
+        self,
+        username,
+        first_name,
+        last_name,
+        email,
+        password,
+        **other_fields,
+    ):
         email = self.normalize_email(email)
-        user = self.model(
-            email=email,
+        account = self.model(
             username=username,
             first_name=first_name,
+            last_name=last_name,
+            email=email,
+            password=password,
             **other_fields,
         )
-        user.set_password(password)
-        user.save()
-        return user
+        account.set_password(password)
+        account.save(using=self._db)
+        return account
+
+    def create_superuser(
+        self,
+        username,
+        first_name,
+        last_name,
+        email,
+        password,
+        **other_fields,
+    ):
+        other_fields.setdefault("is_staff", True)
+        other_fields.setdefault("is_superuser", True)
+        other_fields.setdefault("is_active", True)
+
+        return self.create_user(
+            username,
+            first_name,
+            last_name,
+            email,
+            password,
+            **other_fields,
+        )
+
 
     def get_by_natural_key(self, username):
         return self.get(username=username)
