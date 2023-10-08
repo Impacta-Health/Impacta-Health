@@ -78,7 +78,7 @@
                         <div class="col-xl-6 col-md-6">
                             <div class="short_contact_list">
                                 <ul>
-                                    <li><a href="#"> <i class="fa fa-envelope"></i>index@gmail.com</a></li>
+                                    <li><a href="#"> <i class="fa fa-envelope"></i>impactahealth@gmail.com</a></li>
                                     <li><a href="#"> <i class="fa-solid fa-headphones"></i>(11)5547-0727</a></li>
                                 </ul>
                             </div>
@@ -111,7 +111,7 @@
                         <div class="col-xl-3 col-lg-3 d-none d-lg-block">
                             <div class="Appointment">
                                 <div class="book_btn d-none d-lg-block">
-                                    <a class="popup-with-form" href="#test-form">Realize seu Cadastro</a>
+                                    <a href="{% url 'users:patient-signup' %}">Realize seu Cadastro</a>
                                 </div>
                             </div>
                         </div>
@@ -126,52 +126,24 @@
     <!-- header-end -->
 <br><br><br><br><br><br>
     <!-- slider_area_start -->
+    <div class="text-center">
+        <h1>
+            Agendar consulta
+        </h1>
+    </div>
     <form>
         <div class="form-row">
-          <div class="form-group col-md-10">
+          <div class="form-group col-md-9">
             <label for="imputName">Nome</label>
-            <input type="text" class="form-control" id="imputName" placeholder="Coloque o nome completo">
+            <input type="text" class="form-control form-control-sm" id="imputName" placeholder="Coloque o nome completo ou usuário">
           </div>
-          <div class="form-group col-md-10">
+          <div class="form-group col-md-9">
             <label for="imputDocument">Documento</label>
             <input type="text" class="form-control" id="imputDocument" placeholder="Insira o documento 'CPF'">
           </div>
-        </div>
-        <div class="form-row">
-            <div class="form-group col-md-10">
-              <label for="inputEmail4">Clínicas</label>
-              <input type="email" class="form-control" id="inputEmail4" placeholder="Selecione a clínica">
-            </div>
-            <div class="form-group col-md-10">
-              <label for="inputPassword4">Documento</label>
-              <input type="password" class="form-control" id="inputPassword4" placeholder="Insira o documento 'CPF'">
-            </div>
-          </div>
-        <div class="form-row ">
-            <div class="form-group col-md-2">
-                <label for="inputEstado">Cidade</label><br>
-                <select id="inputEstado" class="form-control">
-                  <option selected>Escolher...</option>
-                  <option>Pará</option>
-                  <option>Amapá</option>
-                  <option>Maranhão</option>
-                  <option>Piauí</option>
-                  <option>Ceará</option>
-                  <option>Paraíba</option>
-                  <option>Pernambuco</option>
-                  <option>Alagoas</option>
-                  <option>Sergipe</option>
-                  <option>Bahia</option>
-                  <option>Minas Gerais</option>
-                  <option>Espírito Santo</option>
-                  <option>Rio de Janeiro</option>
-                  <option>São Paulo</option>
-                </select>
-              </div>
-          <div class="form-group col-md-2">
-            <label for="inputEstado">Especialidades</label><br>
-            <select id="inputEstado" class="form-control">
-              <option selected>Escolher...</option>
+          <div class="form-group col-md-9">
+            <label for="exampleFormControlSelect1">Selecione a especialiadade</label>
+            <select class="form-select selectBox" id="exampleFormControlSelect1">
               <option>Oftalmologista</option>
               <option>Psicologia</option>
               <option>Odontologia</option>
@@ -179,9 +151,14 @@
               <option>Cirurgias</option>
             </select>
           </div>
-        </div><br>
-        <button type="submit" class="btn btn-primary">Entrar</button>
-      </form>
+        </div>
+        <br><br><br>
+        
+    
+        <button type="submit" class="btn btn-primary">Agendar</button>
+      </form><br><br>
+
+
     <!-- expert_doctors_area_start -->
     <div class="expert_doctors_area">
         <div class="container">

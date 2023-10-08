@@ -7,5 +7,8 @@ def index(request):
 def home(request):
     return render(request, "appointments/schedule.html")
 
-def reschedule(request):
-    return render(request, "appointments/reschedule.html")
+def schedule(request):
+    return render(request, "appointments/schedule.html")
+
+def searchQueries(request):
+    return render(request, "appointments/searchQueries.html")

@@ -5,9 +5,16 @@
     display: block; /* Necessário para o margin funcionar */
      margin-left: auto; /* aqui */
     margin-right: auto; /* e aqui */
-    border: none;
+    border: 5px;
     border-radius: 4px;
     background-color: #f1f1f1;
+
+}
+
+.imputName{
+  border: 20px;
+  border-radius: 4px;
+  background-color: #f1f1f1
 
 }
 
@@ -37,4 +44,10 @@
     margin-right: auto; /* e aqui */
     border: none;
 
+}
+.título{
+  display: block; /* Necessário para o margin funcionar */
+  margin-left: auto; /* aqui */
+  margin-right: auto; /* e aqui */
+  align-items: center;
 }
