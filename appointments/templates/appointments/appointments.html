@@ -1,0 +1,98 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Consultas </title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        body {
+            margin-top: 30px;
+        }
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            margin-top: 100px;
+        }
+        .header-container h2 {
+            font-size: 30px;
+            font-weight: bold;
+            margin: 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            background-color: #f5f8fa;
+            border: 1px solid #d1d7dc;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+        th,
+        td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #d1d7dc;
+        }
+        th {
+            background-color: #50a0f6;
+            font-weight: bold;
+            color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        tr:nth-child(even) {
+            background-color: #e0eaf0;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        {% include 'partials/header.html' %}
+    </header>
+    <main>
+        <div class="container">
+            <div class="header-container">
+                <h2 class="mb-4">Consultas</h2>
+            </div>
+            {% if appointments %}
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Data</th>
+                        <th>Médico</th>
+                        <th>Departamento</th>
+                        <th>Horário</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for appointment in appointments %}
+                    <tr>
+                        <td>{{ appointment.datetime.date }}</td>
+                        <td>{{ appointment.doctor }}</td>
+                        <td>{{ appointment.department }}</td>
+                        <td>{{ appointment.datetime.time }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% else %}
+            <div class="alert alert-info text-center" role="alert">
+                Você não possui consultas.
+            </div>
+            {% endif %}
+            <a href="{% url 'appointments:schedule' %}" class="boxed-btn3">Agendar Nova Consulta</a>
+        </div>
+    </main>
+    <footer class="footer">
+        {% include 'partials/footer.html' %}
+    </footer>
+</body>
+
+</html>

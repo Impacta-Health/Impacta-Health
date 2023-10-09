@@ -1,6 +1,5 @@
 {% load static %}
 
-//TODO: Separar os headers e foots para usar globalmente...
 {% block content %}
 <!DOCTYPE html>
 <html lang="en">
@@ -10,11 +9,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Realize seu Cadastro</title>
   <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'css/form.css' %}">
+  <style>
+    .error-field {
+      border-color: red;
+    }
+
+    .error-message {
+      color: red;
+      display: none;
+    }
+  </style>
 </head>
 
 <body>
   <header>
-    <!-- Cabeçalho da página, se necessário -->
+    {% include 'partials/header.html' %}
   </header>
   <main>
     <div class="registration-form">
@@ -24,7 +35,7 @@
         <div class="form-group">
           <input type="text" name="{{ form.username.name }}" id="{{ form.username.id_for_label }}"
             placeholder="Seu nome de usuário">
-            <div class="invalid-feedback username-feedback"></div>
+          <div class="error-message username-feedback"></div>
         </div>
         <div class="form-group">
           <input type="text" name="{{ form.first_name.name }}" id="{{ form.first_name.id_for_label }}"
@@ -37,7 +48,7 @@
         <div class="form-group">
           <input type="email" name="{{ form.email.name }}" id="{{ form.email.id_for_label }}"
             placeholder="Seu endereço de email">
-            <div class="invalid-feedback email-feedback"></div>
+          <div class="error-message email-feedback"></div>
         </div>
         <div class="form-group">
           <input type="password" name="{{ form.password1.name }}" id="{{ form.password1.id_for_label }}"
@@ -46,18 +57,19 @@
         <div class="form-group">
           <input type="password" name="{{ form.password2.name }}" id="{{ form.password2.id_for_label }}"
             placeholder="Confirme sua senha">
-            <div class="invalid-feedback password-feedback"></div>
+          <div class="error-message password-feedback"></div>
         </div>
         <div class="form-group">
-          <button type="submit" class="boxed-btn3">Confirm</button>
+          <button type="submit" class="boxed-btn3"> Confirmar </button>
         </div>
       </form>
     </div>
   </main>
-  <footer>
-    <!-- Rodapé da página, se necessário -->
+  <footer class="footer">
+    {% include 'partials/footer.html' %}
   </footer>
 </body>
+
 </html>
 {% endblock %}
 
@@ -65,12 +77,12 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
 <script>
   $(document).ready(function () {
-    var usernameField = $('#id_username');
-    var emailField = $('#id_email');
-    var passwordField1 = $('#id_password1');
-    var passwordField2 = $('#id_password2');
-    var firstNameField = $('#id_first_name');
-    var lastNameField = $('#id_last_name');
+    var usernameField = $('#{{ form.username.id_for_label }}');
+    var emailField = $('#{{ form.email.id_for_label }}');
+    var passwordField1 = $('#{{ form.password1.id_for_label }}');
+    var passwordField2 = $('#{{ form.password2.id_for_label }}');
+    var firstNameField = $('#{{ form.first_name.id_for_label }}');
+    var lastNameField = $('#{{ form.last_name.id_for_label }}');
 
     function showFeedback(element, message) {
       element.text(message).fadeIn();

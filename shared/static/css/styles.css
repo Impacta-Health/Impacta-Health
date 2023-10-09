@@ -2636,6 +2636,23 @@ fieldset:disabled a.btn {
     pointer-events: none
 }
 
+.btn-primary-light {
+    background-color: #3498db;
+    /* Cor de fundo do botão */
+    color: #fff;
+    /* Cor do texto do botão */
+    border-color: #3498db;
+    /* Cor da borda do botão (se necessário) */
+}
+
+/* Quando o cursor passar sobre o botão, você pode ajustar a cor hover se desejar */
+.btn-primary-light:hover {
+    background-color: #2980b9;
+    /* Cor de fundo do botão no hover */
+    border-color: #2980b9;
+    /* Cor da borda do botão no hover (se necessário) */
+}
+
 .btn-primary {
     color: #fff;
     background-color: #007bff;
@@ -9268,6 +9285,7 @@ a.text-dark:hover {
         border: 1px solid #ddd!important
     }
 }
+
 
 
 /* # sourceMappingURL=bootstrap.min.css.map */
