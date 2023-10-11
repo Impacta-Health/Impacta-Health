@@ -41,7 +41,6 @@ class ListAppointmentsView(View):
         
         if request.user:
             appointments = Appointment.objects.filter(patient=request.user)
-            print(appointments)
         
         context = {
             'appointments': appointments,
