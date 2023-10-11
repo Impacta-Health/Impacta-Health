@@ -1,5 +1,7 @@
 {% load static %}
 
+{% load i18n %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -65,19 +67,19 @@
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th>Data</th>
                         <th>Médico</th>
                         <th>Departamento</th>
+                        <th>Data</th>
                         <th>Horário</th>
                     </tr>
                 </thead>
                 <tbody>
                     {% for appointment in appointments %}
                     <tr>
-                        <td>{{ appointment.datetime.date }}</td>
                         <td>{{ appointment.doctor }}</td>
-                        <td>{{ appointment.department }}</td>
-                        <td>{{ appointment.datetime.time }}</td>
+                        <td>{% trans appointment.department %}</td>
+                        <td>{{ appointment.date }}</td>
+                        <td>{{ appointment.time }}</td>
                     </tr>
                     {% endfor %}
                 </tbody>

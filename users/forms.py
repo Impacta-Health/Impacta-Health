@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 
-from users.models import user_model
+from users import models
 
 
 class SignUpForm(UserCreationForm):
@@ -27,14 +27,14 @@ class SignUpForm(UserCreationForm):
 
 class PatientSignUpForm(SignUpForm):
     class Meta(SignUpForm.Meta):
-        model = user_model.PatientUser
+        model = models.PatientUser
 
 
 class AdminSignUpForm(SignUpForm):
     class Meta(SignUpForm.Meta):
-        model = user_model.AdminUser
+        model = models.AdminUser
 
 
 class DoctorSignUpForm(SignUpForm):
     class Meta(SignUpForm.Meta):
-        model = user_model.DoctorUser
+        model = models.DoctorUser

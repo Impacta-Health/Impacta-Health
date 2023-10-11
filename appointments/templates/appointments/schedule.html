@@ -7,7 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Agendamento </title>
+    <title>Agendamento</title>
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/form.css' %}">
@@ -19,18 +19,35 @@
     </header>
     <main>
         <div class="registration-form">
-            <h2> Novo agendamento </h2>
+            <h2>Novo agendamento</h2>
             <form method="post">
                 {% csrf_token %}
                 <div class="form-group">
-                    <input type="text" name="department" id="{{ form.department.id_for_label }}" placeholder="Departamento">
+                    <select name="{{ form.department.name }}" id="{{ form.department.id_for_label }}">
+                        <option value="" selected disabled>Selecione o Departamento</option>
+                        {% for choice in form.department.field.choices %}
+                        <option value="{{ choice.0 }}">{{ choice.1 }}</option>
+                        {% endfor %}
+                    </select>
                 </div>
                 <div class="form-group">
-                    <input type="text" name="doctor" id="{{ form.doctor.id_for_label }}" placeholder="Médicos">
+                    <select name="{{ form.doctor.name }}" id="{{ form.doctor.id_for_label }}">
+                        <option value="" selected disabled>Selecione o Médico</option>
+                        {% for choice in form.doctor.field.choices %}
+                        <option value="{{ choice.0 }}">{{ choice.1 }}</option>
+                        {% endfor %}
+                    </select>
                 </div>
                 <div class="form-group">
-                    <input type="text" name="datetime" id="{{ form.datetime.id_for_label }}" placeholder="Data e Hora">
+                    <input type="date" name="{{ form.date.name }}" id="{{ form.date.id_for_label }}" class="form-control"
+                        placeholder="Selecione a Data">
                 </div>
+                
+                <div class="form-group">
+                    <input type="time" name="{{ form.time.name }}" id="{{ form.time.id_for_label }}" class="form-control"
+                        placeholder="Selecione o Horário">
+                </div>
+                <button type="submit" class="boxed-btn3">Agendar</button>
             </form>
         </div>
     </main>
@@ -41,4 +58,3 @@
 
 </html>
 {% endblock %}
-

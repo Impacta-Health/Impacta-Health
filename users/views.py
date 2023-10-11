@@ -8,7 +8,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
 from django.http import HttpResponse
 from users.forms import AdminSignUpForm, DoctorSignUpForm, PatientSignUpForm
-from users.models.user_model import AdminUser, DoctorUser, PatientUser, User
+from users.models import AdminUser, DoctorUser, PatientUser, User
 from users.validators.username_validator import validate_username
 
 class SignUpView(View):

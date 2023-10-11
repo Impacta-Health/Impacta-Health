@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.utils import timezone
-from appointments.forms import AppointmentForm
+from appointments.forms import ScheduleForm
 from django.views import View
 from django.http import HttpResponse
 from appointments.models import Appointment
@@ -14,7 +14,7 @@ def index(request):
 
 class CreateAppointmentView(View):
     template_name = 'appointments/schedule.html'
-    form_class = AppointmentForm
+    form_class = ScheduleForm
 
     def get(self, request, *args, **kwargs):
         form = self.form_class()
@@ -23,18 +23,10 @@ class CreateAppointmentView(View):
     def post(self, request, *args, **kwargs):
         form = self.form_class(request.POST)
         if form.is_valid():
-            date = form.cleaned_data['date']
-            time = form.cleaned_data['time']
-    
-            appointment_datetime = timezone.make_aware(
-                timezone.datetime.combine(date, time)
-            )
-
             appointment = form.save(commit=False)
-            appointment.appointment_datetime = appointment_datetime
             appointment.patient = request.user
             appointment.save()
-            return redirect('appointments:index')
+            return redirect('appointments:list')
         else:
             errors = form.errors.as_json()
             if errors:
