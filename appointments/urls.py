@@ -8,8 +8,8 @@ app_name = "appointments"
 
 urlpatterns = [
     path("", views.index, name="index"),
-    path("appointments/schedule.html", views.home, name="schedule"),
-    path("appointments/searchQueries.html", views.searchQueries, name="searchQueries"),
-    path("appointments/schedule.html", views.schedule, name="schedule"),
+    path("appointments/schedule", views.CreateAppointmentView.as_view(), name="schedule"),
+    path("appointments/list", views.ListAppointmentsView.as_view(), name="list"),
+    path("appointments/reschedule.html", views.reschedule, name="reschedule"),
     
 ]

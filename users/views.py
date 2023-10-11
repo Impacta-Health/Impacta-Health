@@ -1,13 +1,14 @@
 from django.http import JsonResponse
 from django.shortcuts import redirect, render
-from django.urls import reverse
+from django.contrib.auth import logout
+from django.contrib.auth import authenticate, login
 from django.views import View
 from django.core.exceptions import ValidationError
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
 from django.http import HttpResponse
 from users.forms import AdminSignUpForm, DoctorSignUpForm, PatientSignUpForm
-from users.models.user_model import AdminUser, DoctorUser, PatientUser, User
+from users.models import AdminUser, DoctorUser, PatientUser, User
 from users.validators.username_validator import validate_username
 
 class SignUpView(View):
@@ -34,13 +35,40 @@ class SignUpView(View):
                     email=email,
                     password=password,
                 )
-                return redirect('appointments:index')
+                auth_user = authenticate(request, username=username, password=password)
+                if auth_user:
+                    login(request, auth_user)
+
+                return redirect('appointments:list')
             else:
                 errors = form.errors.as_json()
                 if errors:
                     return HttpResponse(errors, status=400, content_type='application/json')
         return render(request, self.template_name, {"form": form})
+    
+class LoginView(View):
+    template_name = 'login.html'
 
+    def get(self, request):
+        return render(request, self.template_name)
+
+    def post(self, request):
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(request, username=username, password=password)
+
+        if user is not None:
+            login(request, user)
+            return redirect('appointments:index')
+        else:
+            return render(request, self.template_name, {"error_message": "Credenciais inválidas"})
+    
+
+def custom_logout(request):
+    logout(request)
+    return redirect('appointments:index')
+
+        
 class PatientSignUpView(SignUpView):
     user_model = PatientUser
     template_name = "patient_signup.html"
@@ -61,16 +89,16 @@ class DoctorSignUpView(SignUpView):
 
 @require_POST
 @csrf_exempt
-def verify(request):
+def signup_verify(request):
     username = request.POST.get("username")
     email = request.POST.get("email")
     
-    username_exists = False  # Inicialmente, definimos como falso
+    username_exists = False 
     email_exists = User.objects.filter(email=email).exists()
 
     username_error = ''
     
-    if username is not None and username.strip():  # Verifica se o campo de nome de usuário não é None e não está vazio
+    if username is not None and username.strip():
         try:
             validate_username(username)
             username_exists = User.objects.filter(username=username).exists()
@@ -79,3 +107,18 @@ def verify(request):
 
     data = {'username_exists': username_exists, 'email_exists': email_exists, 'username_error': username_error}
     return JsonResponse(data)
+
+
+@require_POST
+@csrf_exempt
+def login_verify(request):
+    username = request.POST.get("username")
+    password = request.POST.get("password")
+    
+    user = authenticate(request, username=username, password=password)
+    
+    if user is not None:
+        if user.is_active:
+            login(request, user)
+            return JsonResponse({'success': True})
+    return JsonResponse({'success': False})

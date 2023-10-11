@@ -1,12 +1,7 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 
-from users.models.user_model import (
-    AdminUserProfile,
-    DoctorUserProfile,
-    PatientUserProfile,
-    User,
-)
+from users.models import DoctorUserProfile, PatientUserProfile, User
 
 
 class UserAdminConfig(UserAdmin):
@@ -16,9 +11,9 @@ class UserAdminConfig(UserAdmin):
         "username",
         "first_name",
     )
-    list_filter = ("email", "username", "first_name", "is_active", "is_staff")
+    list_filter = ("role", "is_active")
     ordering = ("-date_joined",)
-    list_display = ("id", "username", "first_name", "last_name", "email", "is_active", "is_staff")
+    list_display = ("id", "username", "first_name", "last_name", "email", "is_active", "role")
     fieldsets = (
         (
             None,
@@ -37,45 +32,29 @@ class UserAdminConfig(UserAdmin):
             None,
             {
                 "classes": ("wide",),
-                "fields": ("email", "username", "first_name", "password1", "password2", "is_active", "is_staff"),
-            },
-        ),
-    )
-
-
-class AdminUserProfileAdmin(admin.ModelAdmin):
-    model = AdminUserProfile
-    search_fields = (
-        "user__email",
-        "user__username",
-        "user__first_name",
-    )
-    list_filter = (
-        "user",
-        "user__username",
-        "user__first_name",
-        "user__email",
-    )
-    ordering = ("-updated_at",)
-    list_display = (
-        "id",
-        "user",
-        "cpf",
-        "avatar",
-    )
-    fieldsets = (
-        (
-            None,
-            {
                 "fields": (
-                    "user",
-                    "cpf",
-                    "avatar",
-                )
+                    "role",
+                    "email",
+                    "username",
+                    "first_name",
+                    "password1",
+                    "password2",
+                    "is_active",
+                    "is_staff",
+                ),
             },
         ),
     )
+
+
+@admin.register(PatientUserProfile)
+class PatientUserProfileInline(admin.ModelAdmin):
+    list_display = ["id", "user", "date_of_birth", "cpf", "avatar"]
+
+
+@admin.register(DoctorUserProfile)
+class DoctorUserProfileInline(admin.ModelAdmin):
+    list_display = ["id", "user", "date_of_birth", "crm", "avatar"]
 
 
 admin.site.register(User, UserAdminConfig)
-admin.site.register(AdminUserProfile, AdminUserProfileAdmin)

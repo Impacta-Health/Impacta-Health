@@ -7,7 +7,7 @@ from django.db import models
 from django_cleanup import cleanup
 
 from users.enums import UserRole
-from users.models.managers import (
+from users.managers import (
     AdminUserManager,
     DoctorUserManager,
     PatientUserManager,

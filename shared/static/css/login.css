@@ -1,19 +1,9 @@
-/* Estilos globais */
-body {
-    background-color: #f0f0f0;
-    /* Alterado para um cinza claro */
-    font-family: 'Arial', sans-serif;
-    /* Defina a fonte global desejada */
-}
-
-/* Estilos para o formulário de registro */
+/* login.css */
+/* Estilos para o formulário de login */
 .registration-form {
     background-color: #ffffff;
-    /* Alterado para branco */
     color: #333;
-    /* Alterado para uma cor de texto mais escura */
     width: 600px;
-    /* Definido o tamanho igual para largura e altura */
     margin: 0 auto;
     padding: 20px;
     border-radius: 5px;
@@ -24,13 +14,11 @@ body {
 .registration-form h2 {
     text-align: center;
     color: #007BFF;
-    /* Adicionada cor ao cabeçalho */
 }
 
 /* Estilos para grupos de formulários (campos, labels e selects) */
 .form-group {
     margin-bottom: 20px;
-    /* Espaçamento inferior entre os campos */
 }
 
 /* Estilo para campos de formulário quando estão selecionados */
@@ -38,9 +26,7 @@ body {
 .form-control:focus,
 .form-select:focus {
     border: 2px solid #007BFF;
-    /* Cor da borda azul ao selecionar */
     outline: none;
-    /* Remova o contorno padrão do campo selecionado */
 }
 
 /* Estilo para a seleção de texto dentro dos campos */
@@ -48,13 +34,10 @@ body {
 .form-control::selection,
 .form-select::selection {
     background-color: #007BFF;
-    /* Cor de fundo azul quando o texto está selecionado */
     color: white;
-    /* Cor do texto selecionado */
 }
 
 /* Estilos para campos de formulário, botões e selects */
-.form-group label,
 .form-group input,
 .form-control,
 .btn-primary,
@@ -66,17 +49,34 @@ body {
     border-radius: 4px;
     background-color: #f1f1f1;
     margin-bottom: 10px;
-    /* Espaçamento inferior entre os campos */
+}
+
+.small-text {
+    text-align: center;
+    font-size: 14px;
+    color: #555;
+}
+
+.signup-link {
+    color: #007bff;
+}
+
+.error-feedback {
+    color: red;
+    font-size: 14px;
+    display: none;
+}
+
+.error-field {
+    border: 1px solid red;
 }
 
 /* Estilo para mensagens de erro */
 .invalid-feedback {
     color: #dc3545;
     font-size: 80%;
-    font-family: 'Roboto', sans-serif;
     text-align: left;
     margin-bottom: 10px;
-    /* Espaçamento inferior entre as mensagens de erro */
 }
 
 /* CSS para o botão de enviar */
@@ -90,30 +90,22 @@ body {
     display: block;
     margin: 0 auto;
     margin-top: 20px;
-    /* Espaçamento superior para centralização vertical */
     transition: background-color 0.3s ease, transform 0.1s ease;
 }
 
 /* Efeito de hover para o botão */
 .boxed-btn3:hover {
     background-color: #0056b3;
-    /* Alterando a cor de fundo no hover */
     transform: scale(1.05);
-    /* Redimensionar ligeiramente no hover */
 }
 
 /* Estilos para o cabeçalho H2 */
 h2 {
     color: #007BFF;
-    font-family: 'Arial', sans-serif;
-    /* Substitua 'Arial' pela fonte desejada */
     font-size: 24px;
-    /* Tamanho da fonte */
     font-weight: bold;
-    /* Peso da fonte */
     text-align: center;
     margin-bottom: 20px;
-    /* Espaçamento inferior */
 }
 
 /* Animação de shake para campos com erro */
@@ -142,18 +134,10 @@ h2 {
         transform: translateX(5px);
     }
 }
+
 /* Estilo para campos com erro */
 .error-field {
     border: 1px solid red;
 }
 
-/* Estilo para as mensagens de erro */
-.error-message {
-    color: red;
-    text-align: center;
-    /* Centralizar o texto */
-    margin: 0 auto;
-    /* Centralizar horizontalmente */
-    padding: 5px 0;
-    /* Adicionar algum espaçamento para cima e para baixo */
-}
+/*
