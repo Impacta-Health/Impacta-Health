@@ -1,7 +1,7 @@
 from django.db import models
-from users.models import PatientUser, DoctorUser
-from users import enums
 
+from users import enums
+from users.models import DoctorUser, PatientUser
 
 
 class Appointment(models.Model):
@@ -15,10 +15,10 @@ class Appointment(models.Model):
 
     def __str__(self):
         return self.patient.first_name
-    
+
     class Meta:
-        ordering = ['pk']
+        ordering = ["pk"]
 
     @property
     def doctor_fullname(self):
-        return f'{self.doctor.first_name} {self.doctor.last_name}'
+        return f"{self.doctor.first_name} {self.doctor.last_name}"

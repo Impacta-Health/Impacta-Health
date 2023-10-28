@@ -6,11 +6,12 @@ body {
 
 .registration-form {
     background-color: #ffffff;
-    color: #333;
+    color: #555;
     width: 600px;
     margin: 0 auto;
     padding: 20px;
     border-radius: 5px;
+    margin: 0 auto;
     margin-top: 50px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
@@ -20,20 +21,21 @@ body {
     color: #007BFF;
 }
 
-/* Estilos para grupos de formulários (campos, labels e selects) */
 .form-group {
-    margin-bottom: 20px;
+    margin-bottom: 20px;    
+    text-align: center;
 }
 
 .form-group select,
 .form-group input {
+    color: #504949;
     width: 92%;
     padding: 20px;
+    margin: 0 auto;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
 
-/* Estilo para campos de formulário quando estão selecionados */
 .form-group input:focus,
 .form-control:focus,
 .form-select:focus {
@@ -41,15 +43,14 @@ body {
     outline: none;
 }
 
-/* Estilo para a seleção de texto dentro dos campos */
 .form-group input::selection,
 .form-control::selection,
 .form-select::selection {
+    margin: 0 auto;
     background-color: #007BFF;
     color: white;
 }
 
-/* Estilos para campos de formulário, botões e selects */
 .form-group label,
 .form-group input,
 .form-control,
@@ -62,9 +63,9 @@ body {
     border-radius: 4px;
     background-color: #f1f1f1;
     margin-bottom: 10px;
+    margin: 0 auto;
 }
 
-/* Estilo para mensagens de erro */
 .invalid-feedback {
     color: #dc3545;
     font-size: 80%;
@@ -73,7 +74,6 @@ body {
     margin-bottom: 10px;
 }
 
-/* CSS para o botão de enviar */
 .boxed-btn3 {
     background-color: #007BFF;
     color: white;
@@ -87,13 +87,11 @@ body {
     transition: background-color 0.3s ease, transform 0.1s ease;
 }
 
-/* Efeito de hover para o botão */
 .boxed-btn3:hover {
     background-color: #0056b3;
     transform: scale(1.05);
 }
 
-/* Estilos para o cabeçalho H2 */
 h2 {
     color: #007BFF;
     font-family: 'Arial', sans-serif;
@@ -103,7 +101,6 @@ h2 {
     margin-bottom: 20px;
 }
 
-/* Animação de shake para campos com erro */
 .error-shake {
     animation: shake 0.5s;
 }
@@ -130,15 +127,70 @@ h2 {
     }
 }
 
-/* Estilo para campos com erro */
 .error-field {
     border: 1px solid red;
 }
 
-/* Estilo para as mensagens de erro */
+
 .error-message {
     color: red;
     text-align: center;
     margin: 0 auto;
     padding: 5px 0;
+}
+
+.success-container {
+margin-top: 20px;
+width: 520px;
+margin: 0 auto;
+
+}
+
+.success-alert {
+    padding: 20px;
+    font-size: 16px;
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    border-radius: 5px;
+    color: #155724;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.custom-date,
+.custom-time {
+    position: relative;
+    text-align: left;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.custom-date input[type="date"],
+.custom-time input[type="time"] {
+    padding: 18px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.custom-date .placeholder,
+.custom-time .placeholder {
+    position: absolute;
+    padding: 20px;
+    left: 3px;
+    color: #999;
+    pointer-events: none;
+    transition: top 0.3s, font-size 0.3s;
+}
+
+.custom-date input[type="date"]:focus+.placeholder,
+.custom-time input[type="time"]:focus+.placeholder,
+.custom-date input[type="date"]:valid+.placeholder,
+.custom-time input[type="time"]:valid+.placeholder {
+    top: -40px;
+    font-size: 12px;
+}
+
+.custom-date input[type="date"]:focus+.placeholder,
+.custom-time input[type="time"]:focus+.placeholder {
+    color: #007BFF;
 }
