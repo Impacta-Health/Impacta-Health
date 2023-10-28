@@ -88,7 +88,7 @@
                     <p><strong>Data:</strong> {{ appointment.date }}</p>
                     <p><strong>Horário:</strong> {{ appointment.time }}</p>
                 </div>
-                <a href="{% url 'appointments:reschedule' appointment.id %}" class="btn-alterar">Alterar</a>
+                <a href="{% url 'appointments:reschedule' appointment.id %}" class="btn-alterar">Reagendar</a>
             </div>
             {% endfor %}
             {% else %}
