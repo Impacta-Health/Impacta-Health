@@ -27,7 +27,7 @@
     <main>
         <div class="registration-form">
             <h2>Novo agendamento</h2>
-            <form method="post">
+            <form id="scheduleForm" method="post">
                 {% csrf_token %}
                 <div class="form-group">
                     <select name="{{ form.department.name }}" id="{{ form.department.id_for_label }}">
@@ -46,21 +46,48 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <input type="date" name="{{ form.date.name }}" id="{{ form.date.id_for_label }}" class="form-control"
-                        placeholder="Selecione a Data">
+                    <div class="custom-date">
+                        <input type="date" name="{{ form.date.name }}" id="date" class="form-control" placeholder=" ">
+                        <span class="placeholder">Selecione a Data</span>
+                    </div>
                 </div>
-                
                 <div class="form-group">
-                    <input type="time" name="{{ form.time.name }}" id="{{ form.time.id_for_label }}" class="form-control"
-                        placeholder="Selecione o Horário">
+                    <div class="custom-time">
+                        <input type="time" name="{{ form.time.name }}" id="time" class="form-control" placeholder=" ">
+                        <span class="placeholder">Selecione o Horário</span>
+                    </div>
                 </div>
                 <button type="submit" class="boxed-btn3">Agendar</button>
+                <div class="success-container">
+                    <div id="success-alert" class="alert alert-success d-none success-alert" role="alert">
+                        Agendamento realizado com sucesso!
+                    </div>
+                </div>
             </form>
         </div>
     </main><br><br><br><br><br><br><br>
     <footer class="footer">
         {% include 'partials/footer.html' %}
     </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('scheduleForm');
+            form.addEventListener('submit', async (event) => {
+                event.preventDefault();
+
+                const formData = new FormData(form);
+                setTimeout(() => {
+                    const successAlert = document.getElementById('success-alert');
+                    successAlert.classList.remove('d-none');
+
+                    setTimeout(() => {
+                        successAlert.classList.add('d-none');
+                        window.location.href = "{% url 'appointments:list' %}";
+                    }, 2000);
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>

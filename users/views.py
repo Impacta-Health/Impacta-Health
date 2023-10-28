@@ -1,15 +1,15 @@
-from django.http import JsonResponse
-from django.shortcuts import redirect, render
-from django.contrib.auth import logout
-from django.contrib.auth import authenticate, login
-from django.views import View
+from django.contrib.auth import authenticate, login, logout
 from django.core.exceptions import ValidationError
+from django.http import HttpResponse, JsonResponse
+from django.shortcuts import redirect, render
+from django.views import View
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
-from django.http import HttpResponse
+
 from users.forms import AdminSignUpForm, DoctorSignUpForm, PatientSignUpForm
 from users.models import AdminUser, DoctorUser, PatientUser, User
 from users.validators.username_validator import validate_username
+
 
 class SignUpView(View):
     user_model = None
@@ -20,7 +20,7 @@ class SignUpView(View):
 
     def post(self, request, *args, **kwargs):
         form = self.form_class(request.POST)
-        if request.method == 'POST':
+        if request.method == "POST":
             if form.is_valid():
                 username = form.cleaned_data["username"]
                 first_name = form.cleaned_data["first_name"]
@@ -39,36 +39,37 @@ class SignUpView(View):
                 if auth_user:
                     login(request, auth_user)
 
-                return redirect('appointments:list')
+                return redirect("appointments:list")
             else:
                 errors = form.errors.as_json()
                 if errors:
-                    return HttpResponse(errors, status=400, content_type='application/json')
+                    return HttpResponse(errors, status=400, content_type="application/json")
         return render(request, self.template_name, {"form": form})
-    
+
+
 class LoginView(View):
-    template_name = 'login.html'
+    template_name = "login.html"
 
     def get(self, request):
         return render(request, self.template_name)
 
     def post(self, request):
-        username = request.POST.get('username')
-        password = request.POST.get('password')
+        username = request.POST.get("username")
+        password = request.POST.get("password")
         user = authenticate(request, username=username, password=password)
 
         if user is not None:
             login(request, user)
-            return redirect('appointments:index')
+            return redirect("appointments:index")
         else:
             return render(request, self.template_name, {"error_message": "Credenciais inválidas"})
-    
+
 
 def custom_logout(request):
     logout(request)
-    return redirect('appointments:index')
+    return redirect("appointments:index")
 
-        
+
 class PatientSignUpView(SignUpView):
     user_model = PatientUser
     template_name = "patient_signup.html"
@@ -92,20 +93,20 @@ class DoctorSignUpView(SignUpView):
 def signup_verify(request):
     username = request.POST.get("username")
     email = request.POST.get("email")
-    
-    username_exists = False 
+
+    username_exists = False
     email_exists = User.objects.filter(email=email).exists()
 
-    username_error = ''
-    
+    username_error = ""
+
     if username is not None and username.strip():
         try:
             validate_username(username)
             username_exists = User.objects.filter(username=username).exists()
         except ValidationError as e:
-            username_error = e.messages[0] if e.messages else ''
+            username_error = e.messages[0] if e.messages else ""
 
-    data = {'username_exists': username_exists, 'email_exists': email_exists, 'username_error': username_error}
+    data = {"username_exists": username_exists, "email_exists": email_exists, "username_error": username_error}
     return JsonResponse(data)
 
 
@@ -114,11 +115,11 @@ def signup_verify(request):
 def login_verify(request):
     username = request.POST.get("username")
     password = request.POST.get("password")
-    
+
     user = authenticate(request, username=username, password=password)
-    
+
     if user is not None:
         if user.is_active:
             login(request, user)
-            return JsonResponse({'success': True})
-    return JsonResponse({'success': False})
+            return JsonResponse({"success": True})
+    return JsonResponse({"success": False})

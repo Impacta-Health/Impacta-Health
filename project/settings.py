@@ -11,10 +11,11 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 import os
-from pathlib import Path
-import dj_database_url
 from functools import partial
-from decouple import Csv, config
+from pathlib import Path
+
+import dj_database_url
+from decouple import config, Csv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -83,11 +84,9 @@ WSGI_APPLICATION = "project.wsgi.application"
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 
-default_db_url = 'sqlite:///' + os.path.join(BASE_DIR / 'db.sqlite3')
+default_db_url = "sqlite:///" + os.path.join(BASE_DIR / "db.sqlite3")
 parse_database = partial(dj_database_url.parse, conn_max_age=600)
-DATABASES = {
-    'default': config('DATABASE_URL', default=default_db_url, cast=parse_database)
-}
+DATABASES = {"default": config("DATABASE_URL", default=default_db_url, cast=parse_database)}
 
 # Auth user
 AUTH_USER_MODEL = "users.User"
@@ -120,24 +119,23 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = 'pt-BR'
+LANGUAGE_CODE = "pt-BR"
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 LOCALE_PATHS = [
-    os.path.join(BASE_DIR, 'locale'),
+    os.path.join(BASE_DIR, "locale"),
 ]
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = '/static/'
-STATICFILES_DIRS = [BASE_DIR / 'shared/static']
-STATIC_ROOT = BASE_DIR / 'static'
+STATIC_URL = "/static/"
+STATICFILES_DIRS = [BASE_DIR / "shared/static"]
+STATIC_ROOT = BASE_DIR / "static"
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
-
+MEDIA_URL = "/media/"
+MEDIA_ROOT = BASE_DIR / "media"
 
 
 COLLECTFAST_ENABLE = False  # Development mode

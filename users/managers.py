@@ -1,7 +1,6 @@
 from django.contrib.auth.models import BaseUserManager
 from django.db import models
 from django.db.models.query import QuerySet
-from django.utils.translation import gettext_lazy as _
 
 from users.enums import UserRole
 
@@ -50,7 +49,6 @@ class UserManager(BaseUserManager, models.Manager):
             password,
             **other_fields,
         )
-
 
     def get_by_natural_key(self, username):
         return self.get(username=username)
