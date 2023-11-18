@@ -69,6 +69,31 @@
     <footer class="footer">
         {% include 'partials/footer.html' %}
     </footer>
+    <script>
+       document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('scheduleForm');
+            form.addEventListener('submit', async (event) => {
+                event.preventDefault();
+                const successAlert = document.getElementById('success-alert');
+                successAlert.classList.remove('d-none');
+
+                setTimeout(async () => {
+                    successAlert.classList.add('d-none');
+                    const formData = new FormData(form);
+                    const response = await fetch(form.action, {
+                        method: form.method,
+                        body: formData
+                    });
+
+                    if (response.ok) {
+                        window.location.href = "{% url 'appointments:list' %}";
+                    } else {
+                        console.error('Erro ao enviar o formulário:', response);
+                    }
+                }, 2000);
+            });
+        });
+    </script>
 </body>
 
 </html>
