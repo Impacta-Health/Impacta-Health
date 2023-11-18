@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/themifyicons.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         body {
             margin-top: 30px;
@@ -56,10 +57,34 @@
             border-radius: 5px;
             text-decoration: none;
             transition: background 0.3s;
+            margin-right: 10px;
         }
 
         .btn-alterar:hover {
             background-color: #3a7abf;
+        }
+
+        .btn-delete {
+            padding: 8px 12px;
+            font-size: 14px;
+            background-color: #f66363;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background 0.3s;
+            margin-right: 10px;
+        }
+        .btn-delete:hover {
+            background-color: #d9534f;
+        }
+        .success-container {
+            margin-top: 20px;
+        }
+
+        .success-alert {
+            display: none;
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -89,6 +114,10 @@
                     <p><strong>Horário:</strong> {{ appointment.time }}</p>
                 </div>
                 <a href="{% url 'appointments:reschedule' appointment.id %}" class="btn-alterar">Reagendar</a>
+                <a href="{% url 'appointments:delete' appointment.id %}" class="btn-delete"
+                    onclick="return confirm('Tem certeza que deseja apagar esta consulta? Este ação não poderá ser desfeito.')">
+                    <i class="fas fa-trash-alt"></i>
+                </a>
             </div>
             {% endfor %}
             {% else %}

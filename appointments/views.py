@@ -54,6 +54,13 @@ class RescheduleAppointmentView(View):
             if errors:
                 return HttpResponse(errors, status=400, content_type="application/json")
         return render(request, self.template_name, {"form": form})
+    
+
+
+def delete_appointment(request, pk):
+    appointment = get_object_or_404(Appointment, id=pk)
+    appointment.delete()
+    return redirect('appointments:list')
 
 
 @method_decorator(login_required(login_url="/users/login/"), name="dispatch")
