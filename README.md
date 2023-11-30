@@ -37,3 +37,10 @@ environments.
 - CodeCov: Code coverage report
 - GitHub Actions (CI/CD): Continuous integration and delivery by
   automating code modifications, testing, and streamlined deployment processes.
+
+  ### Use Case
+  ![image](https://github.com/Impacta-Health/Impacta-Health/assets/90731014/8975f82d-62ed-4f98-914f-98201307ff62)
+
+  ### MER
+  ![image](https://github.com/Impacta-Health/Impacta-Health/assets/90731014/3084e716-c8be-4910-81d0-61c8c46bf585)
+
